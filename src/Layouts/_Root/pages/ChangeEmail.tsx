@@ -16,7 +16,7 @@ const ChangeEmail = () => {
   } = useForm<updateEmailType>({
     resolver: zodResolver(updateEmailSchema),
   });
-  const { mutateAsync, isPending } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: (data: { email: string; password: string; id: string }) => {
       return updateEmail(data);
     },
@@ -33,7 +33,7 @@ const ChangeEmail = () => {
     }
   }
   const navigate = useNavigate();
-  const { mutateAsync: logout, isSuccess } = useMutation({
+  const { mutateAsync: logout } = useMutation({
     mutationFn: signOutAccount,
   });
 

@@ -79,7 +79,7 @@ export async function UpdateUserData(data: appupdateUserType) {
   try {
     if (fileStatus) {
       if (data.imageId) {
-        const deletePreviosFile = await deleteFile(data.imageId);
+        await deleteFile(data.imageId);
       }
 
       const uploadedFile = await uploadFile(data.image[0]);
@@ -389,7 +389,7 @@ export async function updatePost(post: appwriteUpdatePostType) {
   const fileStatus = post.image.length > 0;
   try {
     if (fileStatus) {
-      const deletePreviosFile = await deleteFile(post.imageId);
+      await deleteFile(post.imageId);
       const uploadedFile = await uploadFile(post.image[0]);
       if (!uploadedFile) throw new Error();
       const imageUrl = await getFilePreview(uploadedFile.$id);
@@ -446,7 +446,7 @@ export async function updatePost(post: appwriteUpdatePostType) {
 
 export async function deletePost(postId: string, imageId: string) {
   try {
-    const deletePreviosFile = await deleteFile(imageId);
+    await deleteFile(imageId);
     // console.log(postId);
     const deletedPost = await databases.deleteDocument(
       appwriteConfig.databaseId,

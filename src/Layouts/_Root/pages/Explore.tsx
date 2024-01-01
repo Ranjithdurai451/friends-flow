@@ -107,7 +107,7 @@ const Explore = () => {
             <ul className="xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
               {posts2?.pages?.map((page) =>
                 page?.documents?.map((post: Models.Document, index: any) => (
-                  <NewPostCard key={post.$id} post={post}></NewPostCard>
+                  <NewPostCard key={index} post={post}></NewPostCard>
                 ))
               )}
               {hasNextPage && (

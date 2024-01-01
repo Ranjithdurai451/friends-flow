@@ -1,9 +1,4 @@
-import {
-  Query,
-  useInfiniteQuery,
-  useMutation,
-  useQuery,
-} from '@tanstack/react-query';
+import { useInfiniteQuery, useMutation, useQuery } from '@tanstack/react-query';
 import {
   UpdateUserData,
   createAccount,
@@ -172,7 +167,7 @@ export const useCreateNewComment = (id: string, currentUser: any) => {
       });
       return { previousData };
     },
-    onError: ({ context }: any) => {
+    onError: (_error, _variables, context) => {
       queryClient.invalidateQueries({ queryKey: ['posts', id] });
       queryClient.setQueryData(['posts', id], () => {
         return { ...context?.previousData };
@@ -250,7 +245,7 @@ export const useUpdatePost = (id: string) => {
       });
       return { previousPost, previousPostById };
     },
-    onError(error, variables, context: any) {
+    onError(_error, _variables, context: any) {
       queryClient.setQueryData(['posts'], context?.previousPost);
       queryClient.setQueryData(['posts', id], context?.previousPostById);
     },
@@ -279,7 +274,7 @@ export const useDeleteComment = (postId: string) => {
       });
       return { previousData };
     },
-    onError: (error, variables, context) => {
+    onError: (_error, _variables, context) => {
       queryClient.invalidateQueries({ queryKey: ['posts', postId] });
       queryClient.setQueryData(['posts', postId], () => {
         return { ...context?.previousData };
@@ -325,7 +320,7 @@ export const useUpdateComment = (postId: string) => {
       });
       return { previousData };
     },
-    onError(error, variables, context) {
+    onError(_error, _variables, context) {
       queryClient.invalidateQueries({ queryKey: ['posts', postId] });
       queryClient.setQueryData(['posts', postId], () => {
         return { ...context?.previousData };
@@ -349,6 +344,7 @@ export const useLikePost = (postId: string) => {
       return likePost(postId, likesArray);
     },
     onSuccess() {
+      queryClient.invalidateQueries({ queryKey: [postId] });
       queryClient.invalidateQueries({ queryKey: ['posts'] });
     },
     onMutate: (data: any) => {
@@ -389,7 +385,7 @@ export const useLikePost = (postId: string) => {
 
       return { previousPost };
     },
-    onError(error, variables, context: any) {
+    onError(_error, _variables, context: any) {
       console.log(context);
       queryClient.setQueryData(['posts'], context.previousPost);
     },
@@ -415,6 +411,7 @@ export const useSavePost = (postId: string, post: any) => {
     onMutate: (data) => {
       queryClient.cancelQueries({ queryKey: ['user'] });
       var previousUser: any = queryClient.getQueryData(['user']);
+      queryClient.getQueryData([postId]);
       queryClient.setQueryData(['user'], () => {
         return {
           ...previousUser,
@@ -423,7 +420,7 @@ export const useSavePost = (postId: string, post: any) => {
       });
       return { previousUser };
     },
-    onError(error, variables, context: any) {
+    onError(_error, _variables, context: any) {
       queryClient.setQueryData(['user'], context?.previousUser);
     },
     onSettled() {
@@ -444,6 +441,7 @@ export const useDeleteSavedPost = (postId: string, post: any) => {
       return deleteSavedPost(postId);
     },
     onMutate: () => {
+      queryClient.getQueryData([postId]);
       queryClient.cancelQueries({ queryKey: ['user'] });
       var previousUser: any = queryClient.getQueryData(['user']);
       queryClient.setQueryData(['user'], () => {
@@ -456,7 +454,7 @@ export const useDeleteSavedPost = (postId: string, post: any) => {
       });
       return { previousUser };
     },
-    onError(error, variables, context: any) {
+    onError(_error, _variables, context: any) {
       queryClient.setQueryData(['user'], context.previousUser);
     },
     onSettled() {
