@@ -2,14 +2,12 @@ import { useSelector } from 'react-redux';
 import { multiFormatDateString } from '../../../functions';
 import DotIcon from '../../../ui/Icons/DotIcon';
 import { useState } from 'react';
-import DustBinIcon from '../../../ui/Icons/DustBinIcon';
-import EditIcon from '../../../ui/Icons/EditIcon';
+
 import React from 'react';
 import {
   useDeleteComment,
   useUpdateComment,
 } from '../../../functions/ReactQuery/queries';
-import { CloseIcon } from '../../../ui/Icons/CloseIcon';
 type CommentCardProps = {
   comment: any;
   postId: string;
@@ -21,8 +19,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
   const [editMode, setEditMode] = useState(false);
   const user = useSelector((state: any) => state.auth.user);
   //deleteComment
-  const { mutateAsync: deleteMutate, isPending: isDeleting } =
-    useDeleteComment(postId);
+  const { mutateAsync: deleteMutate } = useDeleteComment(postId);
   async function deleteHandler() {
     await deleteMutate({ commentId: comment.$id });
     setDialogVisible(false);
