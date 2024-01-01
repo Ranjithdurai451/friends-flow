@@ -1,4 +1,4 @@
-import { ID, Models } from 'appwrite';
+import { Models } from 'appwrite';
 import LikeIcon from '../../../ui/Icons/LikeIcon';
 import { useEffect, useState } from 'react';
 import LikedIcon from '../../../ui/Icons/LikedIcon';
@@ -8,7 +8,6 @@ import SaveIcon from '../../../ui/Icons/SaveIcon';
 import { Saved2Icon } from '../../../ui/Icons/Saved2Icon';
 import {
   useDeleteSavedPost,
-  useGetCurrentUserData,
   useGetUser,
   useLikePost,
   useSavePost,

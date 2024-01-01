@@ -162,11 +162,7 @@ import { CloseIcon } from '../../../ui/Icons/CloseIcon';
 const Comment = () => {
   const { id } = useParams();
   const user = useSelector((state: any) => state.auth.user);
-  const {
-    data: post,
-    isPending: isLoading,
-    isSuccess,
-  } = useGetPostById(id ?? '');
+  const { data: post, isPending: isLoading } = useGetPostById(id ?? '');
 
   const { mutateAsync, isPending: isDeletingPost } = useDeletePost(id ?? '');
   const navigate = useNavigate();

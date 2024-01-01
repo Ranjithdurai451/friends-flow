@@ -2,17 +2,12 @@ import { useSelector } from 'react-redux';
 import NewUserCard from './NewUserCard';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
 import { SuggestedUser } from '../../../functions/appwrite/api';
 import Spinner from '../../../ui/Spinner';
 
 const RightBar = () => {
   const user = useSelector((state: any) => state.auth.user);
-  const {
-    data: users,
-    isPending,
-    isSuccess,
-  } = useQuery({
+  const { data: users, isPending } = useQuery({
     queryKey: ['suggested'],
     queryFn: SuggestedUser,
   });

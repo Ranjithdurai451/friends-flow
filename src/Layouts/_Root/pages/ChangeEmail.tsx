@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { signOutAccount, updateEmail } from '../../../functions/appwrite/api';
 import { useSelector } from 'react-redux';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ChangeEmail = () => {
   const { user } = useSelector((state: any) => state.auth);

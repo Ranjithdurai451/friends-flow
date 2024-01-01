@@ -5,10 +5,7 @@ import TopBar from './Components/TopBar';
 import BottomBar from './Components/BottomBar';
 import LeftBar from './Components/LeftBar';
 import { SkeletonTheme } from 'react-loading-skeleton';
-import {
-  useGetCurrentUserData,
-  useGetUser,
-} from '../../functions/ReactQuery/queries';
+import { useGetUser } from '../../functions/ReactQuery/queries';
 const RootLayout = () => {
   const isauth = useSelector((state: any) => state.auth.isAuthenticated);
   const user = useSelector((state: any) => state.auth.user);

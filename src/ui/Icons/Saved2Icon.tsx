@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 export const Saved2Icon = ({ className }: { className?: string }) => {
   return (

@@ -10,6 +10,7 @@ export const SavedPostCard = ({
   post: any;
   showStats?: boolean;
 }) => {
+  console.log(showStats);
   const { data, isSuccess } = useGetPostById(post?.posts.$id);
   return (
     <div className="mt-5 group">

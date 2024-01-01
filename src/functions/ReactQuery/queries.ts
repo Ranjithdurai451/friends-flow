@@ -172,7 +172,7 @@ export const useCreateNewComment = (id: string, currentUser: any) => {
       });
       return { previousData };
     },
-    onError: (error, variables, context) => {
+    onError: ({ context }: any) => {
       queryClient.invalidateQueries({ queryKey: ['posts', id] });
       queryClient.setQueryData(['posts', id], () => {
         return { ...context?.previousData };
@@ -193,7 +193,7 @@ export const useDeletePost = (id: string) => {
     mutationKey: ['posts', id],
     mutationFn: ({ postId, imageId }: { postId: string; imageId: string }) =>
       deletePost(postId, imageId),
-    onMutate: (data) => {
+    onMutate: () => {
       queryClient.cancelQueries({ queryKey: ['posts', id] });
       queryClient.removeQueries({ queryKey: ['posts', id] });
     },

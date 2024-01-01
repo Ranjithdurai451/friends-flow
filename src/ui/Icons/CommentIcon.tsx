@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CommentIcon = ({ className }: { className?: string }) => {
   return (
     <svg

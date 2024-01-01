@@ -1,12 +1,12 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import HomeIcon from '../../../ui/Icons/HomeIcon';
 import ExploreIcon from '../../../ui/Icons/ExploreIcon';
 import SavedIcon from '../../../ui/Icons/SavedIcon';
 import CreateIcon from '../../../ui/Icons/CreateIcon';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import PeopleIcon from '../../../ui/Icons/PeopleIcon';
 const BottomBar = () => {
-  const user = useSelector((state: any) => state.auth.user);
+  // const user = useSelector((state: any) => state.auth.user);
   return (
     <div className="w-full flex sm:hidden justify-between py-4 px-10 bg-black flex-shrink-0 border-t-orange-500 border-t-[2px] border-solid border-opacity-20">
       <NavLink
