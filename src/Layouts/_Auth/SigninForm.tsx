@@ -66,7 +66,7 @@ export const SigninForm = () => {
         <Loader2 />
       ) : (
         <>
-          <div className="fade-up bg-white text-black sm:p-3 p-4  rounded-xl flex flex-col gap-3 justify-center items-center">
+          <div className="fade-up bg-white text-black sm:p-3 p-2 sm:w-[450px] w-full  rounded-xl flex flex-col gap-3 justify-center items-center">
             <div className="flex gap-1 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

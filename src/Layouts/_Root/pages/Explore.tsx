@@ -45,7 +45,7 @@ const Explore = () => {
   return (
     <div className=" flex flex-col sm:pt-10 sm:px-4 pt-4 sm:gap-6 gap-2 items-center text-white">
       <h1 className="sm:text-3xl text-xl font-bold">Search Hashtags</h1>
-      <div className="w-[80%] sm:w-[350px] md:w-[400px] lg:w-[500px] h-[50px]  rounded-lg relative">
+      <div className="w-full sm:w-[350px] md:w-[400px] lg:w-[500px] h-[50px]  rounded-lg relative">
         <span className=" absolute left-3 top-1">
           <SearchIcon className="w-[35px] h-[35px] fill-white" />
         </span>

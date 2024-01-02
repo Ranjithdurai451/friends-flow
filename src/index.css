@@ -51,7 +51,7 @@
 }
 
 .form-group {
-  @apply flex h-[45px]   items-center w-[80vw] sm:w-[400px] mb-2;
+  @apply flex h-[45px]   items-center w-full sm:w-[400px] mb-2;
 }
 .form-label {
   @apply sm:w-[35%] w-[30%] h-full text-[14px] pl-2 font-normal flex justify-center items-center;

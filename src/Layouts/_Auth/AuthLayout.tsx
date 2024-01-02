@@ -74,7 +74,7 @@ const AuthLayout = () => {
                 </div>
               </header>
 
-              <div className="w-full h-full flex justify-center  items-start sm:pt-[50px] pt-[100px]">
+              <div className="w-full h-full flex justify-center  items-start sm:pt-[50px] pt-[50px]">
                 <Outlet />
               </div>
             </div>
