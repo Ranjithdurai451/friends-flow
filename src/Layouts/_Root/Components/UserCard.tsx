@@ -12,7 +12,7 @@ const UserCard = ({ user }: UserCardType) => {
         alt=""
         width={50}
         height={50}
-        className="rounded-full"
+        className="rounded-full aspect-square"
       />
       <p className="text-white sm:text-lg text-md">{user?.name}</p>
       <p className="text-sm text-white text-opacity-30">{user?.username}</p>

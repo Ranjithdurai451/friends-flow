@@ -2,6 +2,14 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    width: {
+      screen: '100dvw',
+      full: '100%',
+    },
+    height: {
+      screen: '100dvh',
+      full: '100%',
+    },
     extend: {
       fontSize: {
         sm: 'clamp(0.83rem, 0.44vw + 0.72rem, 1rem)',

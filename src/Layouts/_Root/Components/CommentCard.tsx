@@ -46,7 +46,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
           width={40}
           height={40}
           alt=""
-          className="rounded-full"
+          className="rounded-full aspect-square"
         />
       </div>
       {!editMode && (
@@ -155,35 +155,37 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
           }}
           className="w-screen h-screen fixed inset-0 bg-black bg-opacity-60 z-10 flex justify-center items-center"
         >
-          <div className="bg-white bg-opacity-20 rounded-xl sm:w-[350px] w-[80%] flex flex-col">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setEditMode(true);
-                setDialogVisible(false);
-              }}
-              className="py-3 w-full border-[0px] border-b border-solid border-white border-opacity-20 "
-            >
-              Edit
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteHandler();
-              }}
-              className="py-3 w-full border-[0px]  border-b-[1px] border-solid border-white border-opacity-20 "
-            >
-              Delete
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setDialogVisible(false);
-              }}
-              className="py-3 w-full border-[0px] "
-            >
-              Cancel
-            </button>
+          <div className="bg-black">
+            <div className="bg-white bg-opacity-20 rounded-xl sm:w-[350px] w-[80%] flex flex-col">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setEditMode(true);
+                  setDialogVisible(false);
+                }}
+                className="py-3 w-full border-[0px] border-b border-solid border-white border-opacity-20 "
+              >
+                Edit
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteHandler();
+                }}
+                className="py-3 w-full border-[0px]  border-b-[1px] border-solid border-white border-opacity-20 "
+              >
+                Delete
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setDialogVisible(false);
+                }}
+                className="py-3 w-full border-[0px] "
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}

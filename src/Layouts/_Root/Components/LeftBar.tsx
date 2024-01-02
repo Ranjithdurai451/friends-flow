@@ -25,7 +25,7 @@ const LeftBar = () => {
   return (
     <div className="h-full py-5 xl:px-6 xl:pr-[50px] bg-black hidden sm:flex flex-col gap-5 shrink-0 border-r-[1px] border-orange-500 border-solid border-opacity-20">
       <div>
-        <Link to="/in" className="  p-2 h-fit">
+        <Link to="/in" className="  p-1 h-fit">
           <div className="flex gap-1 items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const LeftBar = () => {
           alt=""
           width={50}
           height={50}
-          className="rounded-full"
+          className="rounded-full aspect-square"
         />
         <div className="p-1  flex-col gap-0 xl:flex hidden  ">
           <p className="text-white capitalize text-[20px]">{user?.name}</p>

@@ -40,7 +40,7 @@ const TopBar = () => {
             alt=""
             width={40}
             height={40}
-            className="rounded-full"
+            className="rounded-full aspect-square"
           />
         </Link>
         <button onClick={submitHandler}>

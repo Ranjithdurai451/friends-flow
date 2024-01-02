@@ -71,6 +71,7 @@ export const useCreateNewPost = () => {
 export const useGetAllPosts = () => {
   return useInfiniteQuery({
     queryKey: ['posts'],
+    // enabled: false,
     queryFn: ({ pageParam }) => getRecentPosts(pageParam),
     getNextPageParam: (lastPage: any) => {
       // console.log(lastPage);

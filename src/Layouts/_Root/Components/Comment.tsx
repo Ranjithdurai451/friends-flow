@@ -245,7 +245,7 @@ const Comment = () => {
               alt=""
               width={40}
               height={40}
-              className="rounded-full"
+              className="rounded-full aspect-square"
             />
             <div className="flex flex-col flex-grow">
               <span className="text-[18px] capitalize">
@@ -324,7 +324,7 @@ const Comment = () => {
                       alt=""
                       width={40}
                       height={40}
-                      className="rounded-full"
+                      className="rounded-full aspect-square"
                     />
                   </div>
                   <input

@@ -31,7 +31,7 @@ const NewUserCard = ({ name, username, id, profileUrl }: NewUserCardProps) => {
       <div className="flex p-2 gap-3">
         <img
           src={profileUrl}
-          className="rounded-full w-[50px] h-[50px]"
+          className="rounded-full w-[50px] h-[50px] aspect-square object-cover"
           alt=""
         />
         <div className="flex flex-col ">

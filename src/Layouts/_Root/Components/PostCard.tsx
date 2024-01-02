@@ -24,7 +24,7 @@ const PostCard = ({ post }: PostCardProps) => {
             alt=""
             width={45}
             height={45}
-            className="rounded-full"
+            className="rounded-full aspect-square"
           />
         </Link>
         <div className="flex flex-col flex-grow">
