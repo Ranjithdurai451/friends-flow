@@ -9,7 +9,6 @@ import NewPostCard from '../Components/NewPostCard';
 import { useInView } from 'react-intersection-observer';
 import { Models } from 'appwrite';
 import Spinner from '../../../ui/Spinner';
-import NewPostCardSkeleton from '../../../ui/NewPostCardSkeleton';
 
 const Explore = () => {
   const [searchTerm, setSearchTerm] = useState('');
