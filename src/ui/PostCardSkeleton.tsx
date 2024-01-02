@@ -2,7 +2,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 const PostCardSkeleton = () => {
   return (
-    <div className="flex flex-col sm:w-full w-[80vw] text-white bg-white bg-opacity-5 p-5 rounded-[20px] flex-shrink-0">
+    <div className="flex flex-col sm:w-full w-full text-white bg-white bg-opacity-5 p-5 rounded-[20px] flex-shrink-0">
       <header className="flex gap-3 justify-center items-center">
         <div className="rounded-full">
           <Skeleton width={45} height={45} circle />

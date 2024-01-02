@@ -6,7 +6,7 @@ type UserCardType = {
 };
 const UserCard = ({ user }: UserCardType) => {
   return (
-    <div className="xm:py-6 py-4 sm:px-10 px-4 w-[150px] sm:w-[250px] flex flex-col items-center justify-center sm:gap-3 gap-2  border-[1px] border-orange-500 border-solid border-opacity-20 rounded-lg  ">
+    <div className="xm:py-6 py-4 sm:px-10 px-4 w-full flex flex-col items-center justify-center sm:gap-3 gap-2  border-[1px] border-orange-500 border-solid border-opacity-20 rounded-lg  ">
       <img
         src={user?.profileUrl}
         alt=""

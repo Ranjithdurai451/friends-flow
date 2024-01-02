@@ -99,7 +99,7 @@ const PostDetail = () => {
       {isLoading ? (
         <Loader2 />
       ) : (
-        <div className="py-12 px-8">
+        <div className="sm:py-12 sm:px-8">
           <div className="w-full flex-col gap-6">
             <div className="flex flex-col lg:flex-row w-full gap-6 lg:h-[70vh] text-white bg-white bg-opacity-[0.06] p-5 rounded-[20px] flex-shrink-0 ">
               <main className="lg:w-[40%] w-full">
@@ -167,7 +167,7 @@ const PostDetail = () => {
                   </div>
                   <PostStats post={post} userId={user.id} isPostDetail={true} />
                   <div>
-                    <div className=" p-3 flex flex-col gap-7 w-full text-white">
+                    <div className=" p-3 flex flex-col gap-5 w-full text-white">
                       <div className="w-full flex justify-between items-center">
                         <div className="text-md">
                           <span>{post?.comments.length} </span> Comments
@@ -271,7 +271,7 @@ const PostDetail = () => {
                 ) === 0 ? (
                 <div>No results found</div>
               ) : (
-                <div className="grid xl:grid-cols-5 md:grid-cols-4 grid-cols-3 gap-5">
+                <div className="grid xl:grid-cols-5 md:grid-cols-4 grid-cols-3 gap-4 p-4">
                   {posts?.pages?.map((page) =>
                     page?.documents
                       ?.filter((post: any) => post.$id !== id)

@@ -70,12 +70,12 @@ const UpdateUser = () => {
         <CreateIcon className="fill-white h-[40px] w-[40px]" />
         <span className=" font-extrabold text-2xl">Edit Profile</span>
       </h1>
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="p-2 w-full flex flex-col sm:gap-3 gap-2">
         <div className="w-full flex items-center justify-between">
           <ProfileUploader mediaUrl={user?.profileUrl} fieldChange={setFiles} />
           <Link
             to={`/in/change-email/${user?.$id}`}
-            className="text-orange-500 hover:text-white duration-200"
+            className="text-orange-500 hover:text-white duration-200 text-sm sm:text-base"
           >
             Change email
           </Link>

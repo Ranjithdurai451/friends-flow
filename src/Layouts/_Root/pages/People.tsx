@@ -48,8 +48,8 @@ const People = () => {
   }, [isError]);
   const showSearchResults = debouncedSearchTerm.trim() !== '';
   return (
-    <div className=" flex flex-col sm:pt-10 sm:px-6 pt-6 sm:gap-6 gap-4 items-center text-white">
-      <h1 className="text-3xl font-bold">Search Creators</h1>
+    <div className=" flex flex-col sm:pt-10 sm:px-6 pt-4 sm:gap-6 gap-2 items-center text-white">
+      <h1 className="sm:text-3xl text-lg font-bold">Search Creators</h1>
       <div className="w-[80%] sm:w-[350px] md:w-[400px] lg:w-[500px] h-[50px]  rounded-lg relative">
         <span className=" absolute left-3 top-1">
           <SearchIcon className="w-[35px] h-[35px] fill-white" />
@@ -64,12 +64,8 @@ const People = () => {
       </div>
       {showSearchResults &&
         (isFetching || !isFetched ? (
-          <div className="flex flex-wrap  gap-5">
-            {Array(3)
-              .fill(0)
-              .map((_, index) => (
-                <UserCardSkeleton key={index} />
-              ))}
+          <div className="flex items-center justify-center w-full h-[200px] sm:[400px]">
+            <Spinner />
           </div>
         ) : users?.pages?.reduce(
             (acc, page) => acc + page?.documents?.length,
@@ -78,7 +74,7 @@ const People = () => {
           <div>No results found</div>
         ) : (
           isFetched && (
-            <div className="flex flex-wrap  gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5 sm:p-5 p-2 gap-3">
               {users?.pages?.map((page) =>
                 page?.documents?.map((user: Models.Document) => (
                   <UserCard user={user} key={user.$id} />
@@ -96,7 +92,7 @@ const People = () => {
 
       {!showSearchResults &&
         (isPostsPending && !posts ? (
-          <div className="flex flex-wrap  gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5 sm:p-5 p-2 gap-3">
             {Array(4)
               .fill(0)
               .map((_, index) => (
@@ -105,7 +101,7 @@ const People = () => {
           </div>
         ) : (
           <div>
-            <div className=" flex flex-wrap  gap-5 p-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5 sm:p-5 p-2 gap-3">
               {posts?.pages?.map((page) =>
                 page?.documents?.map((user: Models.Document) => (
                   <UserCard user={user} key={user.$id} />

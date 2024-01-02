@@ -156,7 +156,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
           className="w-screen h-screen fixed inset-0 bg-black bg-opacity-60 z-10 flex justify-center items-center"
         >
           <div className="bg-black">
-            <div className="bg-white bg-opacity-20 rounded-xl sm:w-[350px] w-[80%] flex flex-col">
+            <div className="bg-white bg-opacity-20 rounded-xl sm:w-[350px] w-[80vw] flex flex-col">
               <button
                 onClick={(e) => {
                   e.stopPropagation();

@@ -27,7 +27,7 @@ const Profile = () => {
   if (active == 'posts') {
     content =
       user?.posts?.length > 0 ? (
-        <div className="xl:columns-4 columns-3 gap-x-4  w-full p-5">
+        <div className=" xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
           {user?.posts?.map((post: any) => (
             <NewPostCard key={post.$id} post={post}></NewPostCard>
           ))}
@@ -38,7 +38,7 @@ const Profile = () => {
   } else if (active == 'saved') {
     content =
       user?.saves?.length > 0 ? (
-        <div className="xl:columns-4 columns-3 gap-x-4  w-full p-5">
+        <div className="xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
           {user?.saves?.map((post: any) => (
             <NewPostCard key={post.$id} post={post.posts}></NewPostCard>
           ))}
