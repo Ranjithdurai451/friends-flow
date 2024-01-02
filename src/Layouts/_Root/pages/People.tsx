@@ -65,7 +65,7 @@ const People = () => {
       {showSearchResults &&
         (isFetching || !isFetched ? (
           <div className="flex flex-wrap  gap-5">
-            {Array(10)
+            {Array(3)
               .fill(0)
               .map((_, index) => (
                 <UserCardSkeleton key={index} />
@@ -97,7 +97,7 @@ const People = () => {
       {!showSearchResults &&
         (isPostsPending && !posts ? (
           <div className="flex flex-wrap  gap-5">
-            {Array(10)
+            {Array(4)
               .fill(0)
               .map((_, index) => (
                 <UserCardSkeleton key={index} />

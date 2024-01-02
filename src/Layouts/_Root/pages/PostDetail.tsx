@@ -120,7 +120,7 @@ const PostDetail = () => {
                       alt=""
                       width={45}
                       height={45}
-                      className="rounded-full"
+                      className="rounded-full aspect-square"
                     />
                   </Link>
                   <div className="flex flex-col flex-grow">
@@ -180,7 +180,7 @@ const PostDetail = () => {
                           alt=""
                           width={60}
                           height={60}
-                          className="rounded-full"
+                          className="rounded-full aspect-square"
                         />
                         <div className="flex-grow space-y-2">
                           <input
@@ -262,7 +262,9 @@ const PostDetail = () => {
                 </>
               )} */}
               {isFetching ? (
-                <div className="text-white">Loading...</div>
+                <div className="flex items-center justify-center w-full h-[100px]">
+                  <Spinner />
+                </div>
               ) : posts?.pages?.reduce(
                   (acc, page) => acc + page?.documents?.length,
                   0

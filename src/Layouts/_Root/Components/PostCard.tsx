@@ -16,7 +16,7 @@ const PostCard = ({ post }: PostCardProps) => {
   const {} = useGetUser(post.creator.$id);
 
   return (
-    <div className="flex flex-col w-full text-white bg-white bg-opacity-5 p-5 rounded-[20px] flex-shrink-0 border-[0px] border-b-[1px] border-b-orange-500 shadow-md border-solid border-opacity-20 ">
+    <div className="flex flex-col w-full text-white bg-white bg-opacity-5 sm:p-5 p-2 rounded-[20px] flex-shrink-0 border-[0px] border-b-[1px] border-b-orange-500 shadow-md border-solid border-opacity-20 ">
       <header className="flex gap-3 justify-center items-center">
         <Link to={`/in/profile/${post.creator.$id}`} className="rounded-full">
           <img
@@ -64,7 +64,7 @@ const PostCard = ({ post }: PostCardProps) => {
           <img
             src={post.imageUrl}
             alt=""
-            className="w-full rounded-[20px] h-[400px] object-cover  "
+            className="w-full rounded-[20px] h-[350px] object-cover  "
           />
         </main>
       </Link>

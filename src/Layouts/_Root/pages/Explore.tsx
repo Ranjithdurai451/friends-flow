@@ -62,7 +62,7 @@ const Explore = () => {
       {showSearchResults &&
         (isFetching || !isFetched ? (
           <ul className="xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
-            {Array(8)
+            {Array(3)
               .fill(0)
               .map((_, index) => (
                 <NewPostCardSkeleton key={index} />
@@ -97,7 +97,7 @@ const Explore = () => {
         <>
           {isPostsPending && !posts ? (
             <ul className="xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
-              {Array(8)
+              {Array(4)
                 .fill(0)
                 .map((_, index) => (
                   <NewPostCardSkeleton key={index} />

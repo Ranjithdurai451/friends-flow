@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <>
       <div className="w-full flex justify-around  ">
-        <div className="flex flex-col sm:w-[600px] bg-black  min-h-full scrollbar p-5 ">
+        <div className="flex flex-col sm:w-[600px] w-full bg-black  min-h-full scrollbar sm:p-5 p-2">
           {isPostsPending && !posts ? (
             Array(3)
               .fill(0)
