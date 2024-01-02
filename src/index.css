@@ -63,7 +63,7 @@
   @apply rounded relative bg-gray-100 w-[65%] h-full;
 }
 .form-password {
-  @apply rounded w-full pr-5  bg-gray-200 h-full px-3 placeholder:text-xs placeholder:text-gray-400 focus-within:border-[1px] focus-within:border-solid focus-within:border-black;
+  @apply rounded w-full pr-5  bg-gray-200 h-full  placeholder:text-xs placeholder:text-gray-400 focus-within:border-[1px] focus-within:border-solid focus-within:border-black;
 }
 .password-btn {
   position: absolute;
