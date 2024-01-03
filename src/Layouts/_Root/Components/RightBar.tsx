@@ -35,15 +35,17 @@ const RightBar = () => {
         {isPending ? (
           <Spinner />
         ) : (
-          users?.documents?.map((user: any, index: any) => (
-            <NewUserCard
-              key={index}
-              name={user.name}
-              username={user.username}
-              id={user.$id}
-              profileUrl={user.profileUrl}
-            />
-          ))
+          users?.documents
+            ?.filter((curuser: any) => curuser?.$id !== user?.id)
+            .map((user: any, index: any) => (
+              <NewUserCard
+                key={index}
+                name={user.name}
+                username={user.username}
+                id={user.$id}
+                profileUrl={user.profileUrl}
+              />
+            ))
         )}
       </div>
       <div className="p-1">
