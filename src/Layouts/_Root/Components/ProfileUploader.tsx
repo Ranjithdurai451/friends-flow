@@ -33,7 +33,7 @@ const ProfileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
           />
           <button
             type="button"
-            className="  sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-orange-500 hover:bg-opacity-10 text-orange-500"
+            className="  sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-red-600 hover:bg-opacity-10 text-red-600"
           >
             Change Profile
           </button>

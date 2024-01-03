@@ -59,16 +59,16 @@ const SignupForm = () => {
         <Loader2 />
       ) : (
         <>
-          <div className=" fade-up bg-white text-black sm:p-5 sm:w-[450px] w-full p-2 rounded-xl flex flex-col gap-3 justify-center items-center ">
+          <div className=" fade-up bg-white text-black sm:p-5 sm:w-[450px] w-[95%]  p-2 rounded-xl flex flex-col gap-3 justify-center items-center ">
             <div className="flex gap-1 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-2 -2 24 24"
-                className="w-[35px] h-[35px] fill-orange-500"
+                className="w-[35px] h-[35px] fill-red-600"
               >
                 <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
               </svg>
-              <h1 className="text-orange-500 text-lg newfont ">FriendsFlow!</h1>
+              <h1 className="text-red-600 text-lg newfont ">FriendsFlow!</h1>
             </div>
             <h1 className="text-2xl font-extrabold">Create a new account</h1>
             <p className="text-gray-500">
@@ -87,7 +87,7 @@ const SignupForm = () => {
                   placeholder="Name"
                   className={`form-input ${
                     errors.name
-                      ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                      ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                       : ''
                   }`}
                   {...register('name')}
@@ -105,7 +105,7 @@ const SignupForm = () => {
                   placeholder="Username"
                   className={`form-input ${
                     errors.username
-                      ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                      ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                       : ''
                   }`}
                   {...register('username')}
@@ -124,7 +124,7 @@ const SignupForm = () => {
                   {...register('email')}
                   className={`form-input ${
                     errors.email
-                      ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                      ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                       : ''
                   }`}
                 />
@@ -141,7 +141,7 @@ const SignupForm = () => {
                     type={passwordVisible ? 'text' : 'password'}
                     className={`form-password ${
                       errors.password
-                        ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                        ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                         : ''
                     }`}
                     placeholder="Password"
@@ -207,7 +207,7 @@ const SignupForm = () => {
                     type={confirmpasswordVisible ? 'text' : 'password'}
                     className={`form-password ${
                       errors.password
-                        ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                        ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                         : ''
                     }`}
                     placeholder="Confirm Password"
@@ -266,7 +266,7 @@ const SignupForm = () => {
               )}
               <button
                 disabled={isSubmitting}
-                className="py-3 border-solid border-[1px]  w-full rounded-lg  text-white bg-orange-500  disabled:cursor-not-allowed hover:bg-white hover:text-orange-500 duration-200 "
+                className="py-3 border-solid border-[1px]  w-full rounded-lg  text-white bg-red-600  disabled:cursor-not-allowed hover:bg-white hover:text-red-600 duration-200 "
               >
                 {signing ? 'Signing up....' : 'Sign Up'}
               </button>

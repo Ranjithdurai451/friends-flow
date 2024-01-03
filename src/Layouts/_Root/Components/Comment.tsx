@@ -218,7 +218,7 @@ const Comment = () => {
     }
   }
   return (
-    <Modal className=" rounded  flex  flex-col   text-white flex-between gap-10 w-full items-center justify-center s  ">
+    <Modal className=" rounded  flex  flex-col   text-white flex-between gap-10 w-full items-center justify-center p-5  ">
       <div className="w-full  pt-5 flex justify-end">
         <button
           onClick={() => {
@@ -230,7 +230,7 @@ const Comment = () => {
           <CloseIcon className="fill-white lg:w-[45px] lg:h-[45px] w-[30px] h-[30px]" />
         </button>
       </div>
-      <div className="flex flex-col lg:flex-row w-[75vw] h-[80vh]   text-white bg-black   flex-shrink-0 ">
+      <div className="flex flex-col lg:flex-row sm:w-[75dvw] w-[95dvw] sm:h-[80vh]   text-white bg-black   flex-shrink-0 ">
         <main className="lg:w-[55%] w-full lg:block hidden">
           <img
             src={post?.imageUrl}
@@ -239,7 +239,7 @@ const Comment = () => {
           />
         </main>
         <div className="lg:w-[45%] w-full h-full flex flex-col justify-between ">
-          <header className="flex gap-3  justify-center w-full items-center p-3 border-[0px] border-b-[1px] border-orange-500 border-solid border-opacity-20">
+          <header className="flex gap-3  justify-center w-full items-center p-3 border-[0px] border-b-[1px] border-red-600 border-solid border-opacity-20">
             <img
               src={post?.creator.profileUrl}
               alt=""
@@ -265,7 +265,7 @@ const Comment = () => {
                       width="25"
                       height="25"
                       viewBox="0 0 24 24"
-                      className="fill-orange-500"
+                      className="fill-red-600"
                     >
                       <path d="M18.988 2.012l3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"></path>
                       <path d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 002-2v-8.668l-2 2V19z"></path>
@@ -275,7 +275,7 @@ const Comment = () => {
                     {isDeletingPost ? (
                       <Spinner />
                     ) : (
-                      <DeleteIcon className="fill-orange-500 w=[35px] h-[35px]" />
+                      <DeleteIcon className="fill-red-600 w=[35px] h-[35px]" />
                     )}
                   </button>
                 </div>
@@ -291,7 +291,7 @@ const Comment = () => {
                   </div>
                 </div>
 
-                <div className="min-h-[350px] max-h-[3px] flex-grow overflow-y-scroll flex flex-col gap-4 scrollbar border-[0px] border-b-[1px] border-orange-500 border-solid border-opacity-20">
+                <div className="min-h-[350px] max-h-[3px] flex-grow overflow-y-scroll flex flex-col gap-4 scrollbar border-[0px] border-b-[1px] border-red-600 border-solid border-opacity-20">
                   {isLoading ? (
                     <Spinner />
                   ) : (
@@ -317,7 +317,7 @@ const Comment = () => {
                   )}
                 </div>
                 <PostStats post={post} userId={user.id} isPostDetail={true} />
-                <div className="w-full h-[80px] flex-grow  flex justify-center items-center flex-shrink-0 space-y-2 gap-3 border-[0px] border-t-[1px] border-orange-500 border-solid border-opacity-20">
+                <div className="w-full h-[80px] flex-grow  flex justify-center items-center flex-shrink-0 space-y-2 gap-3 border-[0px] border-t-[1px] border-red-600 border-solid border-opacity-20">
                   <div className="rounded-full">
                     <img
                       src={post?.creator.profileUrl}
@@ -334,14 +334,14 @@ const Comment = () => {
                     }}
                     ref={inputRef}
                     value={input}
-                    className=" flex-grow  outline-none py-2 bg-transparent border-[0px] border-b-[1px] border-orange-500 border-solid border-opacity-20"
+                    className=" flex-grow  outline-none py-2 bg-transparent border-[0px] border-b-[1px] border-red-600 border-solid border-opacity-20"
                     placeholder="Add a comment..."
                   />
                   <div className={`flex justify-end items-center`}>
                     <button
                       disabled={!input.trim()}
                       onClick={submitHandler}
-                      className="disabled:cursor-not-allowed disabled:opacity-50  px-3 text-orange-500  text-[18px] "
+                      className="disabled:cursor-not-allowed disabled:opacity-50  px-3 text-red-600  text-[18px] "
                     >
                       Post
                     </button>

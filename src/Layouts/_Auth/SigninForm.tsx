@@ -66,16 +66,16 @@ export const SigninForm = () => {
         <Loader2 />
       ) : (
         <>
-          <div className="fade-up bg-white text-black sm:p-3 p-2 sm:w-[450px] w-full  rounded-xl flex flex-col gap-3 justify-center items-center">
+          <div className="fade-up bg-white text-black sm:p-3 p-2 sm:w-[450px] w-[95%]  rounded-xl flex flex-col gap-3 justify-center items-center">
             <div className="flex gap-1 items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-2 -2 24 24"
-                className="w-[35px] h-[35px] fill-orange-500"
+                className="w-[35px] h-[35px] fill-red-600"
               >
                 <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
               </svg>
-              <h1 className="text-orange-500 text-lg newfont ">FriendsFlow!</h1>
+              <h1 className="text-red-600 text-lg newfont ">FriendsFlow!</h1>
             </div>
             <h1 className="text-2xl font-extrabold">Create a new account</h1>
 
@@ -92,7 +92,7 @@ export const SigninForm = () => {
                   type="text"
                   className={`form-input ${
                     errors.email
-                      ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                      ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                       : ''
                   }`}
                   placeholder="Email"
@@ -114,7 +114,7 @@ export const SigninForm = () => {
                       type={passwordVisible ? 'text' : 'password'}
                       className={`form-password ${
                         errors.password
-                          ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                          ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                           : ''
                       }`}
                       placeholder="Password"
@@ -183,7 +183,7 @@ export const SigninForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="py-3 border-solid border-[1px]  w-full rounded-lg  text-orange-500 bg-white  disabled:cursor-not-allowed hover:bg-orange-500 f  hover:text-white duration-200 "
+                  className="py-3 border-solid border-[1px]  w-full rounded-lg  text-red-600 bg-white  disabled:cursor-not-allowed hover:bg-red-600 f  hover:text-white duration-200 "
                 >
                   {isLogging ? 'logging in...' : 'Sign Up'}
                 </button>
@@ -194,7 +194,7 @@ export const SigninForm = () => {
                 </div>
                 <div
                   onClick={googleLogin}
-                  className="py-3 cursor-pointer w-full rounded-lg flex justify-center items-center gap-2 bg-orange-500 text-white group hover:bg-white hover:text-orange-500 hover:border hover:border-solid hover:border-orange-500 duration-200"
+                  className="py-3 cursor-pointer w-full rounded-lg flex justify-center items-center gap-2 bg-red-600 text-white group hover:bg-white hover:text-red-600 hover:border hover:border-solid hover:border-red-600 duration-200"
                 >
                   <div>
                     <svg
@@ -203,7 +203,7 @@ export const SigninForm = () => {
                       width={25}
                       height={25}
                       fill="white"
-                      className="group-hover:fill-orange-500"
+                      className="group-hover:fill-red-600"
                     >
                       <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
                     </svg>

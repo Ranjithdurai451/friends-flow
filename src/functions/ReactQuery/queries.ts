@@ -456,7 +456,7 @@ export const useDeleteSavedPost = (postId: string, post: any) => {
       return { previousUser };
     },
     onError(_error, _variables, context: any) {
-      queryClient.setQueryData(['user'], context.previousUser);
+      queryClient.setQueryData(['user'], context?.previousUser);
     },
     onSettled() {
       queryClient.invalidateQueries({ queryKey: ['user'] });

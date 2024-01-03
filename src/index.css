@@ -82,7 +82,7 @@
   animation: fadeUp 1s ease forwards;
 }
 .error-msg {
-  @apply text-red-500 text-[12px] w-full text-end;
+  @apply text-red-600 text-[12px] w-full text-end;
 }
 @keyframes fadeUp {
   from {
@@ -346,8 +346,8 @@
 }
 
 .newactive {
-  @apply bg-orange-500 text-white;
+  @apply bg-red-600 text-white;
 }
 .newunactive {
-  @apply bg-white bg-opacity-[0.04] hover:bg-orange-500 hover:bg-opacity-10 text-orange-500;
+  @apply bg-white bg-opacity-[0.04] hover:bg-red-600 hover:bg-opacity-10 text-red-600;
 }

@@ -23,18 +23,18 @@ const LeftBar = () => {
   const user = useSelector((state: any) => state.auth.user);
   // const { data: user } = useGetUser(currentUser?.id);
   return (
-    <div className="h-full py-5 xl:px-6 xl:pr-[50px] bg-black hidden sm:flex flex-col gap-5 shrink-0 border-r-[1px] border-orange-500 border-solid border-opacity-20">
+    <div className="h-full py-5 xl:px-6 xl:pr-[50px] bg-black hidden sm:flex flex-col gap-5 shrink-0 border-r-[1px] border-red-600 border-solid border-opacity-20">
       <div>
         <Link to="/in" className="  p-1 h-fit">
           <div className="flex gap-1 items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="-2 -2 24 24"
-              className="w-[35px] h-[35px] fill-orange-500"
+              className="w-[35px] h-[35px] fill-red-600"
             >
               <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
             </svg>
-            <h1 className="text-orange-500 text-lg newfont xl:block hidden w-full  ">
+            <h1 className="text-red-600 text-lg newfont xl:block hidden w-full  ">
               FriendsFlow!
             </h1>
           </div>
@@ -64,13 +64,13 @@ const LeftBar = () => {
             to="/in"
             className={({ isActive }) =>
               isActive
-                ? 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px] bg-orange-500 group act '
-                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-orange-500 hover:bg-opacity-10  duration-200'
+                ? 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px] bg-red-600 group act '
+                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-red-600 hover:bg-opacity-10  duration-200'
             }
             end
           >
-            <HomeIcon className="w-[30px] h-[30px] fill-orange-500 group-[&.act]:fill-white " />
-            <span className="xl:block hidden text-orange-500 text-[14px] group-[&.act]:text-white">
+            <HomeIcon className="w-[30px] h-[30px] fill-red-600 group-[&.act]:fill-white " />
+            <span className="xl:block hidden text-red-600 text-[14px] group-[&.act]:text-white">
               Home
             </span>
           </NavLink>
@@ -78,12 +78,12 @@ const LeftBar = () => {
             to="/in/explore"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-orange-500  group act'
-                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-orange-500 hover:bg-opacity-10  duration-200'
+                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-red-600  group act'
+                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-red-600 hover:bg-opacity-10  duration-200'
             }
           >
-            <ExploreIcon className="w-[30px] h-[30px] fill-orange-500 group-[&.act]:fill-white " />
-            <span className="xl:block hidden text-orange-500 text-[14px] group-[&.act]:text-white">
+            <ExploreIcon className="w-[30px] h-[30px] fill-red-600 group-[&.act]:fill-white " />
+            <span className="xl:block hidden text-red-600 text-[14px] group-[&.act]:text-white">
               Explore
             </span>
           </NavLink>
@@ -91,12 +91,12 @@ const LeftBar = () => {
             to="/in/people"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-orange-500 group act'
-                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-orange-500 hover:bg-opacity-10  duration-200'
+                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-red-600 group act'
+                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-red-600 hover:bg-opacity-10  duration-200'
             }
           >
-            <PeopleIcon className="w-[30px] h-[30px] fill-orange-500 group-[&.act]:fill-white " />
-            <span className="xl:block hidden text-orange-500 text-[14px] group-[&.act]:text-white">
+            <PeopleIcon className="w-[30px] h-[30px] fill-red-600 group-[&.act]:fill-white " />
+            <span className="xl:block hidden text-red-600 text-[14px] group-[&.act]:text-white">
               People
             </span>
           </NavLink>
@@ -104,12 +104,12 @@ const LeftBar = () => {
             to="/in/saved"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-orange-500 group act'
-                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-orange-500 hover:bg-opacity-10  duration-200'
+                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-red-600 group act'
+                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-red-600 hover:bg-opacity-10  duration-200'
             }
           >
-            <SavedIcon className="w-[30px] h-[30px] fill-orange-500 group-[&.act]:fill-white " />
-            <span className="xl:block hidden text-orange-500 text-[14px] group-[&.act]:text-white">
+            <SavedIcon className="w-[30px] h-[30px] fill-red-600 group-[&.act]:fill-white " />
+            <span className="xl:block hidden text-red-600 text-[14px] group-[&.act]:text-white">
               Saved
             </span>
           </NavLink>
@@ -117,19 +117,19 @@ const LeftBar = () => {
             to="/in/create-post"
             className={({ isActive }) =>
               isActive
-                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-orange-500 group act'
-                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-orange-500 hover:bg-opacity-10 duration-200'
+                ? 'flex justify-start items-center gap-2 rounded w-fit xl:w-[200px]  px-4 py-2 bg-red-600 group act'
+                : 'flex  items-center gap-2 rounded px-4 py-3 w-fit xl:w-[200px]  hover:bg-red-600 hover:bg-opacity-10 duration-200'
             }
           >
-            <CreateIcon className="w-[30px] h-[30px] fill-orange-500 group-[&.act]:fill-white " />
-            <span className="xl:block hidden text-orange-500 text-[14px] group-[&.act]:text-white">
+            <CreateIcon className="w-[30px] h-[30px] fill-red-600 group-[&.act]:fill-white " />
+            <span className="xl:block hidden text-red-600 text-[14px] group-[&.act]:text-white">
               Create
             </span>
           </NavLink>
         </nav>
         <button
           onClick={submitHandler}
-          className="text-orange-500 flex w-fit items-center p-2 rounded justify-start xl:w-[200px]   py-3  hover:bg-orange-500 hover:bg-opacity-10  duration-200"
+          className="text-red-600 flex w-fit items-center p-2 rounded justify-start xl:w-[200px]   py-3  hover:bg-red-600 hover:bg-opacity-10  duration-200"
         >
           <svg
             version="1.1"
@@ -139,7 +139,7 @@ const LeftBar = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             width={35}
             height={35}
-            className=" fill-orange-500  "
+            className=" fill-red-600  "
           >
             <g id="grid_system" />
             <g id="_icons">

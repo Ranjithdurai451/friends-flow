@@ -62,7 +62,7 @@ const ConfirmPassoword = () => {
             type={passwordVisible ? 'text' : 'password'}
             className={`form-password ${
               errors.newPassword
-                ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                 : ''
             }`}
             placeholder="New Password"
@@ -128,7 +128,7 @@ const ConfirmPassoword = () => {
             type={confirmpasswordVisible ? 'text' : 'password'}
             className={`form-password ${
               errors.RepeatednewPassword
-                ? 'border-[1px] border-red-500 border-solid focus-within:border-red-500'
+                ? 'border-[1px] border-red-600 border-solid focus-within:border-red-600'
                 : ''
             }`}
             placeholder="Confirm New Password"
@@ -196,7 +196,7 @@ const ConfirmPassoword = () => {
         <button
           type="submit"
           disabled={!isValid || !isDirty}
-          className=" px-3 py-2 bg-orange-500 text-white rounded w-[50%] disabled:opacity-60 disabled:cursor-not-allowed "
+          className=" px-3 py-2 bg-red-600 text-white rounded w-[50%] disabled:opacity-60 disabled:cursor-not-allowed "
         >
           {isSubmitting ? 'Submitting...' : 'Change Password'}
         </button>

@@ -19,11 +19,11 @@ const NewPostCard = ({ post }: { post: any }) => {
         <div className="absolute z-10 hidden inset-0 p-3 group-hover:flex items-center justify-between  duration-300 w-full bg-black bg-opacity-70">
           <div className="flex items-center gap-10 w-full justify-center">
             <button className="flex items-center gap-1">
-              <LikeIcon className="md:w-[35px] md:h-[35px] w-[25px] h-[25px] fill-orange-500" />
+              <LikeIcon className="md:w-[35px] md:h-[35px] w-[25px] h-[25px] fill-red-600" />
               <span>{post?.likes?.length}</span>
             </button>
             <button className="flex items-center gap-1">
-              <CommentIcon className="md:w-[35px] md:h-[35px]  w-[25px] h-[25px] fill-orange-500" />
+              <CommentIcon className="md:w-[35px] md:h-[35px]  w-[25px] h-[25px] fill-red-600" />
               <span>{post?.comments?.length}</span>
             </button>
           </div>

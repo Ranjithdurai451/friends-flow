@@ -20,17 +20,17 @@ const TopBar = () => {
   }, [isSuccess]);
   const user = useSelector((state: any) => state.auth.user);
   return (
-    <header className="flex justify-between py-2 px-3 w-full bg-black sm:hidden flex-shrink-0 border-[0px] border-b-[2px] border-orange-500 border-solid border-opacity-20">
+    <header className="flex justify-between py-2 px-3 w-full bg-black sm:hidden flex-shrink-0 border-[0px] border-b-[2px] border-red-600 border-solid border-opacity-20">
       <Link to="/in" className="  p-2 h-fit">
         <div className="flex gap-1 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-2 -2 24 24"
-            className="w-[25px] h-[25px] fill-orange-500"
+            className="w-[25px] h-[25px] fill-red-600"
           >
             <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
           </svg>
-          <h1 className="text-orange-500 text-md newfont ">FriendsFlow!</h1>
+          <h1 className="text-red-600 text-md newfont ">FriendsFlow!</h1>
         </div>
       </Link>
       <div className="p-2 flex gap-2 ">
@@ -52,7 +52,7 @@ const TopBar = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             width={35}
             height={35}
-            className=" fill-orange-500 hover:opacity-50 duration-200"
+            className=" fill-red-600 hover:opacity-50 duration-200"
           >
             <g id="grid_system" />
             <g id="_icons">

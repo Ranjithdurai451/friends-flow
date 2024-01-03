@@ -43,14 +43,14 @@ const NewUserCard = ({ name, username, id, profileUrl }: NewUserCardProps) => {
         {user?.id == id ? (
           <button
             onClick={submitHandler}
-            className="text-orange-500 hover:text-white duration-200"
+            className="text-red-600 hover:text-white duration-200"
           >
             {isPending ? 'Signing Out...' : 'Sign Out'}
           </button>
         ) : (
           <Link
             to={`/in/profile/${id}`}
-            className="text-orange-500 hover:text-white duration-200"
+            className="text-red-600 hover:text-white duration-200"
           >
             View
           </Link>

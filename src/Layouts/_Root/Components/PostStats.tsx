@@ -8,11 +8,11 @@ import SaveIcon from '../../../ui/Icons/SaveIcon';
 import { Saved2Icon } from '../../../ui/Icons/Saved2Icon';
 import {
   useDeleteSavedPost,
-  useGetUser,
+  useGetCurrentUserData,
   useLikePost,
   useSavePost,
 } from '../../../functions/ReactQuery/queries';
-import { useSelector } from 'react-redux';
+
 type PostStatsProps = {
   post: any;
   userId: string;
@@ -20,9 +20,9 @@ type PostStatsProps = {
 };
 
 const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
-  // const { data: currentUser, isSuccess } = useGetCurrentUserData();
-  const user = useSelector((state: any) => state.auth.user);
-  const { data: currentUser, isSuccess } = useGetUser(user?.id);
+  const { data: currentUser, isSuccess } = useGetCurrentUserData();
+  // const user = useSelector((state: any) => state.auth.user);
+  // const { data: currentUser, isSuccess } = useGetUser(user?.id);
   // console.log(newcurrentUser, currentUser);
 
   const { mutateAsync: likePostMutate } = useLikePost(post?.$id);
@@ -71,13 +71,12 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
           savedPostId = save?.$id;
         }
       });
-
-      deleteSavedPostMutate({ postId: savedPostId ?? '' });
       setIsSaved(false);
+      await deleteSavedPostMutate({ postId: savedPostId ?? '' });
     } else {
-      id = Math.random().toString();
-      savePostMutate({ postId: post?.$id, userId, id });
       setIsSaved(true);
+      id = Math.random().toString();
+      await savePostMutate({ postId: post?.$id, userId, id });
     }
   }
   useEffect(() => {
@@ -99,9 +98,9 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
         >
           <>
             {checkIsLiked({ likes, userId }) ? (
-              <LikedIcon className="w-[25px] h-[25px] fill-orange-500" />
+              <LikedIcon className="w-[25px] h-[25px] fill-red-600" />
             ) : (
-              <LikeIcon className="w-[25px] h-[25px] fill-orange-500" />
+              <LikeIcon className="w-[25px] h-[25px] fill-red-600" />
             )}
           </>
           <span>{likes?.length}</span>
@@ -111,7 +110,7 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
             to={`/in/comments/${post.$id}`}
             className="flex items-center gap-1"
           >
-            <CommentIcon className="w-[25px] h-[25px] fill-orange-500" />
+            <CommentIcon className="w-[25px] h-[25px] fill-red-600" />
             <span>{post?.comments?.length}</span>
           </Link>
         )}
@@ -119,9 +118,9 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
 
       <button onClick={handleSave}>
         {isSaved ? (
-          <Saved2Icon className="w-[25px] h-[25px] fill-orange-500" />
+          <Saved2Icon className="w-[25px] h-[25px] fill-red-600" />
         ) : (
-          <SaveIcon className="w-[25px] h-[25px] fill-orange-500" />
+          <SaveIcon className="w-[25px] h-[25px] fill-red-600" />
         )}
       </button>
     </div>

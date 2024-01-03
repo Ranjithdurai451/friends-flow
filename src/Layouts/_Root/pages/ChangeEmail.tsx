@@ -54,7 +54,7 @@ const ChangeEmail = () => {
         className="sm:w-[450px] w-[80%] p-4 resize-none rounded-lg bg-white bg-opacity-[10%]"
       />
       {errors.email && (
-        <p className="text-red-500 text-xs text-right sm:w-[450px] w-[80%]">
+        <p className="text-red-600 text-xs text-right sm:w-[450px] w-[80%]">
           {errors.email.message}
         </p>
       )}
@@ -65,7 +65,7 @@ const ChangeEmail = () => {
         className="sm:w-[450px] w-[80%] p-4 resize-none rounded-lg bg-white bg-opacity-[10%]"
       />
       {errors.password && (
-        <p className="text-red-500 text-xs text-right sm:w-[450px] w-[80%]">
+        <p className="text-red-600 text-xs text-right sm:w-[450px] w-[80%]">
           {errors.password.message}
         </p>
       )}
@@ -78,7 +78,7 @@ const ChangeEmail = () => {
 
       <button
         type="submit"
-        className="py-2 px-5 rounded bg-orange-500 hover:bg-opacity-50   "
+        className="py-2 px-5 rounded bg-red-600 hover:bg-opacity-50   "
       >
         Submit
       </button>
