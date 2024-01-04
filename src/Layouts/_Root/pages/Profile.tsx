@@ -8,7 +8,6 @@ import EditIcon from '../../../ui/Icons/EditIcon';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import NewPostCard from '../Components/NewPostCard';
-import Spinner from '../../../ui/Spinner';
 
 const Profile = () => {
   // const { data: currentUserData, isSuccess, refetch } = useGetCurrentUserData();
@@ -16,12 +15,12 @@ const Profile = () => {
   const currentUser = useSelector((state: any) => state.auth.user);
   const {
     data: currentUserData,
-    refetch,
+
     isSuccess,
   } = useGetUser(currentUser?.id);
   const [active, setActive] = useState('posts');
   const { id } = useParams();
-  const { data: user, refetch: refetchUser } = useGetUser(id ?? '');
+  const { data: user } = useGetUser(id ?? '');
 
   var content;
   if (active == 'posts') {
@@ -48,40 +47,50 @@ const Profile = () => {
       );
   }
 
-  const { mutateAsync: followMutate, isPending: isFollowing } = useFollowUser();
+  const { mutateAsync: followMutate } = useFollowUser();
 
-  const { mutateAsync: unFollowMutate, isPending: isUnFollowing } =
-    useUnFollowUser();
+  const { mutateAsync: unFollowMutate } = useUnFollowUser(
+    currentUser?.id,
+    user?.$id ?? ''
+  );
 
   async function handleFollow() {
     if (isFollow) {
       var followId;
       currentUserData?.followings?.forEach((follow: any) => {
+        console.log(follow);
+        console.log(follow?.user?.$id, user?.$id);
         if (follow?.user?.$id == user?.$id) {
+          console.log('working');
           followId = follow?.$id;
         }
       });
       // console.log(currentUserData);
       // console.log(followId);
-
-      await unFollowMutate({ id: followId ?? '' });
+      // console.log(user?.$id);
+      // console.log(currentUserData);
       setIsFollow(false);
-      refetchUser();
-      await refetch();
+      // console.log(followId);
+      await unFollowMutate({ id: followId ?? '' });
     } else {
+      setIsFollow(true);
+      console.log({
+        followerId: currentUser?.id ?? '',
+        userId: user?.$id ?? '',
+        key: Math.random().toString(),
+      });
       await followMutate({
         followerId: currentUser?.id ?? '',
         userId: user?.$id ?? '',
+        key: Math.random().toString(),
       });
-      setIsFollow(true);
-      await refetch();
-      refetchUser();
+      console.log('followed');
     }
   }
   useEffect(() => {
     if (isSuccess) {
-      currentUserData?.followers?.forEach((follow: any) => {
-        if (follow.$id == user?.$id) {
+      currentUserData?.followingss?.forEach((follow: any) => {
+        if (follow.user.$id == user?.$id) {
           setIsFollow(true);
         }
       });
@@ -130,13 +139,7 @@ const Profile = () => {
                   className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-red-600 hover:bg-opacity-10"
                 >
                   <span className="text-red-600 text-sm sm:text-md">
-                    {isFollowing || isUnFollowing ? (
-                      <Spinner />
-                    ) : isFollow ? (
-                      'Following'
-                    ) : (
-                      'Follow'
-                    )}
+                    {isFollow ? 'Unfollow' : 'Follow'}
                   </span>
                 </button>
               )}

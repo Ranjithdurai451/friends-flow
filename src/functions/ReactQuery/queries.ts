@@ -461,12 +461,12 @@ export const useDeleteSavedPost = (postId: string, post: any) => {
     onSettled() {
       queryClient.invalidateQueries({ queryKey: ['user'] });
       queryClient.invalidateQueries({ queryKey: ['posts', post.$id] });
-      // queryClient.invalidateQueries({ queryKey: ['posts'] });
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
     },
     onSuccess() {
       queryClient.invalidateQueries({ queryKey: ['user'] });
       queryClient.invalidateQueries({ queryKey: ['posts', post.$id] });
-      // queryClient.invalidateQueries({ queryKey: ['posts'] });
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
     },
   });
 };
@@ -521,19 +521,64 @@ export const useFollowUser = () => {
     mutationFn: ({
       followerId,
       userId,
+      key,
     }: {
       followerId: string;
       userId: string;
+      key: string;
     }) => {
-      return followUser({ followerId, userId });
+      return followUser({ followerId, userId, key });
+    },
+    onMutate: (data) => {
+      queryClient.cancelQueries({ queryKey: [data?.followerId] });
+      var previousUser: any = queryClient.getQueryData([data?.followerId]);
+
+      queryClient.setQueryData([data?.followerId], () => {
+        return {
+          ...previousUser,
+          followings: [
+            ...previousUser?.followings,
+            {
+              $id: data?.key,
+              userfollow: data?.followerId,
+              user: { $id: data?.userId },
+            },
+          ],
+        };
+      });
+
+      return { previousUser, id: data?.followerId };
+    },
+    onError(_error, _variables, context: any) {
+      queryClient.setQueryData([context?.id], context?.previousUser);
     },
   });
 };
 
-export const useUnFollowUser = () => {
+export const useUnFollowUser = (id: string, followerId: string) => {
   return useMutation({
     mutationFn: ({ id }: { id: string }) => {
       return unFollowUser({ id });
+    },
+    onMutate: () => {
+      queryClient.cancelQueries({ queryKey: [id] });
+      var previousUser: any = queryClient.getQueryData([id]);
+      // console.log(previousUser);
+      queryClient.setQueryData([id], () => {
+        return {
+          ...previousUser,
+          followings: previousUser?.followings.filter(
+            (following: any) => following.user.$id !== followerId
+          ),
+        };
+      });
+      return { previousUser };
+    },
+    onError(_error, _variables, context: any) {
+      queryClient.setQueryData([id], context?.previousUser);
+    },
+    onSettled() {
+      queryClient.invalidateQueries({ queryKey: [id] });
     },
   });
 };

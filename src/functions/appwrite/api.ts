@@ -335,22 +335,25 @@ export async function deleteSavedPost(postId: string) {
 export async function followUser({
   followerId,
   userId,
+  key,
 }: {
   followerId: string;
   userId: string;
+  key: string;
 }) {
   try {
+    // console.log(key);
     const followUser = await databases.createDocument(
       appwriteConfig.databaseId,
       appwriteConfig.followersCollectionId,
-      ID.unique(),
+      key,
       {
         userfollow: followerId,
         user: userId,
       }
     );
     if (!followUser) throw new Error();
-    console.log(followUser);
+    // console.log(followUser);
     return followUser;
   } catch (error) {
     console.log(error);
@@ -358,7 +361,7 @@ export async function followUser({
 }
 
 export async function unFollowUser({ id }: { id: string }) {
-  console.log(id);
+  // console.log(id);
   try {
     const unfollowUser = await databases.deleteDocument(
       appwriteConfig.databaseId,

@@ -3,7 +3,7 @@ import CommentIcon from '../../../ui/Icons/CommentIcon';
 import { Link } from 'react-router-dom';
 
 const NewPostCard = ({ post }: { post: any }) => {
-  console.log(post);
+  // console.log(post);
   return (
     <div className="mt-4 group">
       <Link
