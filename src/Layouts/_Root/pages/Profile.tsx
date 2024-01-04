@@ -58,10 +58,10 @@ const Profile = () => {
     if (isFollow) {
       var followId;
       currentUserData?.followings?.forEach((follow: any) => {
-        console.log(follow);
-        console.log(follow?.user?.$id, user?.$id);
+        // console.log(follow);
+        // console.log(follow?.user?.$id, user?.$id);
         if (follow?.user?.$id == user?.$id) {
-          console.log('working');
+          // console.log('working');
           followId = follow?.$id;
         }
       });
