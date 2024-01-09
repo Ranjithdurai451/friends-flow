@@ -89,7 +89,7 @@ const Profile = () => {
   }
   useEffect(() => {
     if (isSuccess) {
-      currentUserData?.followingss?.forEach((follow: any) => {
+      currentUserData?.followings?.forEach((follow: any) => {
         if (follow.user.$id == user?.$id) {
           setIsFollow(true);
         }
