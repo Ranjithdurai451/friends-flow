@@ -7,10 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setUserState } from '../../functions/store/authSlice';
 import { Loader2 } from '../../ui/Loader';
 import { LoginSchema } from '../../functions/Schema';
-import {
-  useSignInAccount,
-  useSignInWithGoogle,
-} from '../../functions/ReactQuery/queries';
+import { useSignInAccount } from '../../functions/ReactQuery/queries';
 import { isEmailAvailable } from '../../functions/appwrite/api';
 
 export const SigninForm = () => {
@@ -55,11 +52,11 @@ export const SigninForm = () => {
       redirect('/signin');
     }
   }
-  const { mutateAsync, isPending: google } = useSignInWithGoogle();
+  // const { mutateAsync, isPending: google } = useSignInWithGoogle();
 
-  async function googleLogin() {
-    await mutateAsync();
-  }
+  // async function googleLogin() {
+  //   await mutateAsync();
+  // }
   return (
     <>
       {isLoading ? (
@@ -192,7 +189,7 @@ export const SigninForm = () => {
                   <p className="p-1">or</p>
                   <div className="flex-grow h-[1px] bg-gray-500 mr-[80px] "></div>
                 </div>
-                <div
+                {/* <div
                   onClick={googleLogin}
                   className="py-3 cursor-pointer w-full rounded-lg flex justify-center items-center gap-2 bg-red-600 text-white group hover:bg-white hover:text-red-600 hover:border hover:border-solid hover:border-red-600 duration-200"
                 >
@@ -211,7 +208,7 @@ export const SigninForm = () => {
                   <span>
                     {google ? 'logging in...' : 'Sign in with Google'}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <p className="w-full text-center">

@@ -59,7 +59,7 @@ const LeftBar = () => {
         </div>
       </Link>
       <div className="flex flex-col justify-between items-center flex-grow ">
-        <nav className="flex flex-col gap-8 py-5 px-2">
+        <nav className="flex flex-col gap-4 py-5 px-2">
           <NavLink
             to="/in"
             className={({ isActive }) =>
