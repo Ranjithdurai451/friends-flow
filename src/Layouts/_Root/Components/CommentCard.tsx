@@ -81,7 +81,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
                         }}
                         className="flex py-[1px] sm:px-4  sm:gap-2 hover:bg-white hover:bg-opacity-10 rounded-lg items-center"
                       >
-                        <EditIcon className="fill-red-600 sm:w-[15px] sm:h-[15px] w-[10px] h-[10px]" />
+                        <EditIcon className="fill-orange-500 sm:w-[15px] sm:h-[15px] w-[10px] h-[10px]" />
                         <span className="sm:text-[13px] text-[10px]">Edit</span>
                       </button>
                       {isDeleting ? (
@@ -91,7 +91,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
                           onClick={deleteHandler}
                           className="flex py-[1px] sm:px-2 gap-1 hover:bg-white hover:bg-opacity-10 rounded-lg  items-center"
                         >
-                          <DustBinIcon className="fill-red-600 sm:w-[25px] sm:h-[25px] w-[20px] h-[20px]" />
+                          <DustBinIcon className="fill-orange-500 sm:w-[25px] sm:h-[25px] w-[20px] h-[20px]" />
                           <span className="sm:text-[12px] text-[10px]">
                             Delete
                           </span>
@@ -99,7 +99,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
                       )}
                       <button onClick={() => setDialogVisible(false)}>
                         {' '}
-                        <CloseIcon className="fill-red-600 w-[25px] h-[25px]" />{' '}
+                        <CloseIcon className="fill-orange-500 w-[25px] h-[25px]" />{' '}
                       </button>
                     </div>
                   )} */}
@@ -110,7 +110,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
           <div className="text-[15px]">{comment.comment}</div>
           {/* <div className="mt-2">
             <button className="flex items-center gap-2">
-              <LikeIcon className="fill-red-600 w-[20px] h-[20px]" />
+              <LikeIcon className="fill-orange-500 w-[20px] h-[20px]" />
               <span>0</span>
             </button>
           </div> */}
@@ -140,7 +140,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
             <button
               disabled={!input.trim()}
               onClick={submitHandler}
-              className="text-white disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-white disabled:bg-opacity-20 px-3 py-2 rounded-[30px] inline-flex items-center bg-red-600 "
+              className="text-white disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-white disabled:bg-opacity-20 px-3 py-2 rounded-[30px] inline-flex items-center bg-orange-500 "
             >
               Update
             </button>

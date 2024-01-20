@@ -49,7 +49,7 @@ const ForgotPassword = () => {
       <button
         type="submit"
         onClick={(e) => submitHandler(e)}
-        className=" px-3 py-3 bg-red-600 text-white rounded w-full "
+        className=" px-3 py-3 bg-orange-500 text-white rounded w-full "
       >
         Send
       </button>

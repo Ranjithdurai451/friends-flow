@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import PostCardSkeleton from '../../../ui/PostCardSkeleton';
 import RightBar from '../Components/RightBar';
+import Spinner from '../../../ui/Spinner';
 
 const Home = () => {
   const { ref, inView } = useInView();
@@ -43,12 +44,11 @@ const Home = () => {
                 ))
               )}
               {hasNextPage && (
-                <div ref={ref}>
-                  {Array(1)
-                    .fill(0)
-                    .map((_, index) => (
-                      <PostCardSkeleton key={index} />
-                    ))}
+                <div
+                  ref={ref}
+                  className="w-full h-[250px] flex items-center justify-center"
+                >
+                  <Spinner />
                 </div>
               )}
             </ul>

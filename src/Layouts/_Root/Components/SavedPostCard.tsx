@@ -27,11 +27,11 @@ export const SavedPostCard = ({
           <div className="absolute hidden inset-0 p-3 group-hover:flex items-center justify-between  duration-300 w-full bg-black bg-opacity-70">
             <div className="flex items-center gap-10 w-full justify-center">
               <button className="flex items-center gap-1">
-                <LikeIcon className="w-[35px] h-[35px] fill-orange-600" />
+                <LikeIcon className="w-[35px] h-[35px] fill-orange-500" />
                 <span>{data?.likes?.length}</span>
               </button>
               <button className="flex items-center gap-1">
-                <CommentIcon className="w-[35px] h-[35px] fill-orange-600" />
+                <CommentIcon className="w-[35px] h-[35px] fill-orange-500" />
                 <span>{data?.comments?.length}</span>
               </button>
             </div>

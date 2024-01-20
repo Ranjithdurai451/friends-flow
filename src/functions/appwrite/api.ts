@@ -248,7 +248,11 @@ export async function deleteFile(id: string) {
   }
 }
 
-export async function getRecentPosts({ pageparam }: { pageparam: number }) {
+export async function getRecentPosts({
+  pageparam,
+}: {
+  pageparam: number | null;
+}) {
   try {
     const queries: any[] = [Query.orderDesc('$updatedAt'), Query.limit(12)];
     if (pageparam) {
@@ -265,7 +269,11 @@ export async function getRecentPosts({ pageparam }: { pageparam: number }) {
     console.log(error);
   }
 }
-export async function getRecentUsers({ pageparam }: { pageparam: number }) {
+export async function getRecentUsers({
+  pageparam,
+}: {
+  pageparam: number | null;
+}) {
   try {
     const queries: any[] = [Query.orderAsc('$createdAt'), Query.limit(12)];
     if (pageparam) {
@@ -565,7 +573,11 @@ export async function searchUsers({
     console.log(error);
   }
 }
-export async function getPopularPosts({ pageparam }: { pageparam: number }) {
+export async function getPopularPosts({
+  pageparam,
+}: {
+  pageparam: number | null;
+}) {
   try {
     const queries: any[] = [Query.orderDesc('$createdAt'), Query.limit(15)];
     if (pageparam) {

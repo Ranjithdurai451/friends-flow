@@ -98,9 +98,9 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
         >
           <>
             {checkIsLiked({ likes, userId }) ? (
-              <LikedIcon className="w-[25px] h-[25px] fill-red-600" />
+              <LikedIcon className="w-[25px] h-[25px] fill-orange-500" />
             ) : (
-              <LikeIcon className="w-[25px] h-[25px] fill-red-600" />
+              <LikeIcon className="w-[25px] h-[25px] fill-orange-500" />
             )}
           </>
           <span>{likes?.length}</span>
@@ -110,7 +110,7 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
             to={`/in/comments/${post.$id}`}
             className="flex items-center gap-1"
           >
-            <CommentIcon className="w-[25px] h-[25px] fill-red-600" />
+            <CommentIcon className="w-[25px] h-[25px] fill-orange-500" />
             <span>{post?.comments?.length}</span>
           </Link>
         )}
@@ -118,9 +118,9 @@ const PostStats = ({ post, userId, isPostDetail }: PostStatsProps) => {
 
       <button onClick={handleSave}>
         {isSaved ? (
-          <Saved2Icon className="w-[25px] h-[25px] fill-red-600" />
+          <Saved2Icon className="w-[25px] h-[25px] fill-orange-500" />
         ) : (
-          <SaveIcon className="w-[25px] h-[25px] fill-red-600" />
+          <SaveIcon className="w-[25px] h-[25px] fill-orange-500" />
         )}
       </button>
     </div>

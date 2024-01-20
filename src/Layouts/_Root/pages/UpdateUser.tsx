@@ -75,7 +75,7 @@ const UpdateUser = () => {
           <ProfileUploader mediaUrl={user?.profileUrl} fieldChange={setFiles} />
           <Link
             to={`/in/change-email/${user?.$id}`}
-            className="text-red-600 hover:text-white duration-200 text-sm sm:text-base"
+            className="text-orange-500 hover:text-white duration-200 text-sm sm:text-base"
           >
             Change email
           </Link>
@@ -119,14 +119,14 @@ const UpdateUser = () => {
       <div className="flex justify-end items-center gap-4 w-full p-2">
         <Link
           to={'/in/profile/' + user?.$id}
-          className="rounded py-2 px-4 bg-white border border-solid border-red-600 text-red-600 hover:bg-red-600 hover:text-white duration-200"
+          className="rounded py-2 px-4 bg-white border border-solid border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white duration-200"
         >
           Cancel
         </Link>
         <button
           type="submit"
           disabled={isUpdating || isSubmitting}
-          className="rounded py-2 px-4 hover:bg-white duration-200 hover:text-red-600 disabled:hover:bg-red-600 disabled:hover:text-white bg-red-600 text-white disabled:opacity-20 disabled:cursor-not-allowed"
+          className="rounded py-2 px-4 hover:bg-white duration-200 hover:text-orange-500 disabled:hover:bg-orange-500 disabled:hover:text-white bg-orange-500 text-white disabled:opacity-20 disabled:cursor-not-allowed"
         >
           {isUpdating ? 'Updating...' : 'Update'}
         </button>

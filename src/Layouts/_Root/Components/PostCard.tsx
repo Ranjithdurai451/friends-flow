@@ -7,6 +7,7 @@ import {
   useGetPostById,
   useGetUser,
 } from '../../../functions/ReactQuery/queries';
+import { Suspense } from 'react';
 type PostCardProps = {
   post: Models.Document;
 };
@@ -16,7 +17,7 @@ const PostCard = ({ post }: PostCardProps) => {
   const {} = useGetUser(post.creator.$id);
 
   return (
-    <div className="flex flex-col w-full text-white bg-white bg-opacity-5 sm:p-5 p-2 rounded-[20px] flex-shrink-0 border-[0px] border-b-[1px] border-b-red-600 shadow-md border-solid border-opacity-20 ">
+    <div className="flex flex-col w-full text-white bg-white bg-opacity-5 sm:p-5 p-2 rounded-[20px] flex-shrink-0 border-[0px] border-b-[1px] border-b-orange-500 shadow-md border-solid border-opacity-20 ">
       <header className="flex gap-3 justify-center items-center">
         <Link to={`/in/profile/${post.creator.$id}`} className="rounded-full">
           <img
@@ -42,7 +43,7 @@ const PostCard = ({ post }: PostCardProps) => {
                 width="25"
                 height="25"
                 viewBox="0 0 24 24"
-                className="fill-red-600"
+                className="fill-orange-500"
               >
                 <path d="M18.988 2.012l3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"></path>
                 <path d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 002-2v-8.668l-2 2V19z"></path>
@@ -61,11 +62,18 @@ const PostCard = ({ post }: PostCardProps) => {
           </div>
         </div>
         <main>
-          <img
-            src={post.imageUrl}
-            alt=""
-            className="w-full rounded-[20px] h-[350px] object-cover  "
-          />
+          <Suspense
+            fallback={
+              // <Skeleton className="w-full rounded-[20px] h-[350px] object-cover  " />
+              'loading'
+            }
+          >
+            <img
+              src={post?.imageUrl}
+              alt=""
+              className="w-full rounded-[20px] h-[350px] object-cover  "
+            />
+          </Suspense>
         </main>
       </Link>
 

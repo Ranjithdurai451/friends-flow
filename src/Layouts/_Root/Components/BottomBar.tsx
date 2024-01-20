@@ -8,18 +8,18 @@ import PeopleIcon from '../../../ui/Icons/PeopleIcon';
 const BottomBar = () => {
   // const user = useSelector((state: any) => state.auth.user);
   return (
-    <div className="w-full flex sm:hidden justify-between py-2 px-8 bg-black flex-shrink-0 border-t-red-600 border-t-[2px] border-solid border-opacity-20">
+    <div className="w-full flex sm:hidden justify-between py-2 px-8 bg-black flex-shrink-0 border-t-orange-500 border-t-[2px] border-solid border-opacity-20">
       <NavLink
         to="/in"
         className={({ isActive }) =>
           isActive
-            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-red-600'
+            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-orange-500'
             : 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 '
         }
         end
       >
-        <HomeIcon className="w-[25px] h-[25px] fill-red-600 group-[&.act]:fill-white " />
-        {/* <span className="text-red-600 text-[12px] group-[&.act]:text-black">
+        <HomeIcon className="w-[25px] h-[25px] fill-orange-500 group-[&.act]:fill-white " />
+        {/* <span className="text-orange-500 text-[12px] group-[&.act]:text-black">
           Home
         </span> */}
       </NavLink>
@@ -27,12 +27,12 @@ const BottomBar = () => {
         to="/in/explore"
         className={({ isActive }) =>
           isActive
-            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-red-600'
+            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-orange-500'
             : 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 '
         }
       >
-        <ExploreIcon className="w-[25px] h-[25px] fill-red-600 group-[&.act]:fill-white " />
-        {/* <span className="text-red-600 text-[12px] group-[&.act]:text-black">
+        <ExploreIcon className="w-[25px] h-[25px] fill-orange-500 group-[&.act]:fill-white " />
+        {/* <span className="text-orange-500 text-[12px] group-[&.act]:text-black">
           Explore
         </span> */}
       </NavLink>
@@ -40,12 +40,12 @@ const BottomBar = () => {
         to="/in/saved"
         className={({ isActive }) =>
           isActive
-            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-red-600'
+            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-orange-500'
             : 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 '
         }
       >
-        <SavedIcon className="w-[25px] h-[25px] fill-red-600 group-[&.act]:fill-white" />
-        {/* <span className="text-red-600 text-[12px] group-[&.act]:text-black">
+        <SavedIcon className="w-[25px] h-[25px] fill-orange-500 group-[&.act]:fill-white" />
+        {/* <span className="text-orange-500 text-[12px] group-[&.act]:text-black">
           Saved
         </span> */}
       </NavLink>
@@ -53,12 +53,12 @@ const BottomBar = () => {
         to="/in/people"
         className={({ isActive }) =>
           isActive
-            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-red-600'
+            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-orange-500'
             : 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 '
         }
       >
-        <PeopleIcon className="w-[25px] h-[25px] fill-red-600 group-[&.act]:fill-white " />
-        {/* <span className="text-red-600 text-[12px] group-[&.act]:text-black">
+        <PeopleIcon className="w-[25px] h-[25px] fill-orange-500 group-[&.act]:fill-white " />
+        {/* <span className="text-orange-500 text-[12px] group-[&.act]:text-black">
           People
         </span> */}
       </NavLink>
@@ -66,12 +66,12 @@ const BottomBar = () => {
         to="/in/create-post"
         className={({ isActive }) =>
           isActive
-            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-red-600'
+            ? 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 group act bg-orange-500'
             : 'flex flex-col justify-center items-center gap-1 rounded px-2 py-1 '
         }
       >
-        <CreateIcon className="w-[25px] h-[25px] fill-red-600 group-[&.act]:fill-white " />
-        {/* <span className="text-red-600 text-[12px] group-[&.act]:text-black">
+        <CreateIcon className="w-[25px] h-[25px] fill-orange-500 group-[&.act]:fill-white " />
+        {/* <span className="text-orange-500 text-[12px] group-[&.act]:text-black">
           Create
         </span> */}
       </NavLink>

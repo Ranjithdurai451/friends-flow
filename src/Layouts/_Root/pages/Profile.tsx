@@ -100,7 +100,7 @@ const Profile = () => {
   return (
     <div className="flex w-full sm:pt-10 pt-5 sm:px-10 px-3 flex-col sm:gap-10 gap-8">
       <div>
-        <Link to={'/in'} className="text-red-600">
+        <Link to={'/in'} className="text-orange-500">
           <span></span> Back
         </Link>
       </div>
@@ -126,19 +126,19 @@ const Profile = () => {
               {currentUser?.id == user?.$id ? (
                 <Link
                   to={`/in/update-profile/${user?.$id}`}
-                  className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-red-600 hover:bg-opacity-10"
+                  className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-orange-500 hover:bg-opacity-10"
                 >
-                  <EditIcon className="sm:w-[25px] sm:h-[25px] w-[20px] h-[20px] fill-red-600" />
-                  <span className="text-red-600 text-sm sm:text-md">
+                  <EditIcon className="sm:w-[25px] sm:h-[25px] w-[20px] h-[20px] fill-orange-500" />
+                  <span className="text-orange-500 text-sm sm:text-md">
                     Edit Profile
                   </span>
                 </Link>
               ) : (
                 <button
                   onClick={handleFollow}
-                  className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-red-600 hover:bg-opacity-10"
+                  className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-orange-500 hover:bg-opacity-10"
                 >
-                  <span className="text-red-600 text-sm sm:text-md">
+                  <span className="text-orange-500 text-sm sm:text-md">
                     {isFollow ? 'Unfollow' : 'Follow'}
                   </span>
                 </button>
@@ -148,19 +148,19 @@ const Profile = () => {
 
           <div className=" flex w-full justify-between items-center">
             <div className="flex flex-col ">
-              <div className="sm:text-md text-[18px] text-red-600">
+              <div className="sm:text-md text-[18px] text-orange-500">
                 {user?.posts.length}
               </div>
               <div className="sm:text-md text-[18px]">Posts</div>
             </div>
             <div className="flex flex-col ">
-              <div className="sm:text-md text-[18px] text-red-600">
+              <div className="sm:text-md text-[18px] text-orange-500">
                 {user?.followers.length}
               </div>
               <div className="sm:text-md text-[18px]">Followers</div>
             </div>
             <div className="flex flex-col ">
-              <div className="sm:text-md text-[18px] text-red-600">
+              <div className="sm:text-md text-[18px] text-orange-500">
                 {user?.followings.length}
               </div>
               <div className="sm:text-md text-[18px]">Following</div>

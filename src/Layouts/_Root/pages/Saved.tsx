@@ -14,7 +14,7 @@ const Saved = () => {
       ) : (
         <div className="flex flex-col sm:py-10 py-5 gap-3 px-2 sm:gap-7 w-full">
           <h1 className="flex items-center gap-2">
-            <SavedIcon className="fill-red-600 w-[40px] h-[40px]" />
+            <SavedIcon className="fill-orange-500 w-[40px] h-[40px]" />
             <span className="text-lg text-white">Saved Posts</span>
           </h1>
           {user?.saves?.length > 0 ? (
