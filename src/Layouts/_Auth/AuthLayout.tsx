@@ -17,6 +17,21 @@ const AuthLayout = () => {
 
   useEffect(() => {
     async function checkCookie() {
+      queryClient.prefetchInfiniteQuery({
+        queryKey: ['posts'],
+        queryFn: ({ pageParam }) => getRecentPosts(pageParam),
+        initialPageParam: { pageparam: null },
+      });
+      queryClient.prefetchInfiniteQuery({
+        queryKey: ['users'],
+        queryFn: ({ pageParam }) => getRecentUsers(pageParam),
+        initialPageParam: { pageparam: null },
+      });
+      queryClient.prefetchInfiniteQuery({
+        queryKey: ['popular-posts'],
+        queryFn: ({ pageParam }) => getPopularPosts(pageParam),
+        initialPageParam: { pageparam: null },
+      });
       if (
         !localStorage.getItem('cookieFallback') ||
         localStorage.getItem('cookieFallback') == '[]'
@@ -24,21 +39,6 @@ const AuthLayout = () => {
         dispatch(authActions.reset());
         setIsLoading(false);
       } else {
-        queryClient.prefetchInfiniteQuery({
-          queryKey: ['posts'],
-          queryFn: ({ pageParam }) => getRecentPosts(pageParam),
-          initialPageParam: { pageparam: null },
-        });
-        queryClient.prefetchInfiniteQuery({
-          queryKey: ['users'],
-          queryFn: ({ pageParam }) => getRecentUsers(pageParam),
-          initialPageParam: { pageparam: null },
-        });
-        queryClient.prefetchInfiniteQuery({
-          queryKey: ['popular-posts'],
-          queryFn: ({ pageParam }) => getPopularPosts(pageParam),
-          initialPageParam: { pageparam: null },
-        });
         await dispatch(await setUserState());
         setIsLoading(false);
       }

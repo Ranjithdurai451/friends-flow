@@ -55,7 +55,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '',
+    path: '/in',
     element: <RootLayout />,
     children: [
       {

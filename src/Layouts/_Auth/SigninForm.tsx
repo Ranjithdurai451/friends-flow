@@ -8,13 +8,7 @@ import { setUserState } from '../../functions/store/authSlice';
 import { Loader2 } from '../../ui/Loader';
 import { LoginSchema } from '../../functions/Schema';
 import { useSignInAccount } from '../../functions/ReactQuery/queries';
-import {
-  getPopularPosts,
-  getRecentPosts,
-  getRecentUsers,
-  isEmailAvailable,
-} from '../../functions/appwrite/api';
-import { queryClient } from '../../functions/store';
+import { isEmailAvailable } from '../../functions/appwrite/api';
 
 export const SigninForm = () => {
   const [error, setError] = useState({
@@ -49,21 +43,21 @@ export const SigninForm = () => {
         alert('login in failed');
         return;
       }
-      queryClient.prefetchInfiniteQuery({
-        queryKey: ['posts'],
-        queryFn: ({ pageParam }) => getRecentPosts(pageParam),
-        initialPageParam: { pageparam: null },
-      });
-      queryClient.prefetchInfiniteQuery({
-        queryKey: ['users'],
-        queryFn: ({ pageParam }) => getRecentUsers(pageParam),
-        initialPageParam: { pageparam: null },
-      });
-      queryClient.prefetchInfiniteQuery({
-        queryKey: ['popular-posts'],
-        queryFn: ({ pageParam }) => getPopularPosts(pageParam),
-        initialPageParam: { pageparam: null },
-      });
+      // await queryClient.prefetchInfiniteQuery({
+      //   queryKey: ['posts'],
+      //   queryFn: ({ pageParam }) => getRecentPosts(pageParam),
+      //   initialPageParam: { pageparam: null },
+      // });
+      // queryClient.prefetchInfiniteQuery({
+      //   queryKey: ['users'],
+      //   queryFn: ({ pageParam }) => getRecentUsers(pageParam),
+      //   initialPageParam: { pageparam: null },
+      // });
+      // queryClient.prefetchInfiniteQuery({
+      //   queryKey: ['popular-posts'],
+      //   queryFn: ({ pageParam }) => getPopularPosts(pageParam),
+      //   initialPageParam: { pageparam: null },
+      // });
 
       setIsLoading(true);
       await dispatch(await setUserState());

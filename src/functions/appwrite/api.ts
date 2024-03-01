@@ -226,10 +226,10 @@ export async function getFilePreview(id: string) {
     const fileUrl = storage.getFilePreview(
       appwriteConfig.storageId,
       id,
-      2000,
-      2000,
+      300,
+      300,
       'top',
-      100
+      5
     );
     if (!fileUrl) throw new Error();
 
