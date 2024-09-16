@@ -9,6 +9,7 @@ import { Loader2 } from '../../ui/Loader';
 import { LoginSchema } from '../../functions/Schema';
 import { useSignInAccount } from '../../functions/ReactQuery/queries';
 import { isEmailAvailable } from '../../functions/appwrite/api';
+import { AnyAction } from '@reduxjs/toolkit';
 
 export const SigninForm = () => {
   const [error, setError] = useState({
@@ -60,7 +61,7 @@ export const SigninForm = () => {
       // });
 
       setIsLoading(true);
-      await dispatch(await setUserState());
+      await dispatch((await setUserState()) as AnyAction);
       setIsLoading(false);
       redirect('/');
     } catch (error) {
