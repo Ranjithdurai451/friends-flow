@@ -9,10 +9,12 @@ import {
   getRecentPosts,
   getRecentUsers,
 } from '../../functions/appwrite/api';
+import { AnyAction } from '@reduxjs/toolkit';
 
 const AuthLayout = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const isauth = useSelector((state: any) => state.auth.isAuthenticated);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const AuthLayout = () => {
         dispatch(authActions.reset());
         setIsLoading(false);
       } else {
-        await dispatch(await setUserState());
+        dispatch((await setUserState()) as AnyAction);
         setIsLoading(false);
       }
     }
@@ -55,9 +57,9 @@ const AuthLayout = () => {
         <>
           {!isauth ? (
             <div className="bg">
-              <header className="w-full flex px-5 py-3 justify-between items-center">
-                <div className=" text-white text-5xl font-bold p-1 h-fit">
-                  <div className="flex gap-1 items-center">
+              <header className="flex items-center justify-between w-full px-5 py-3">
+                <div className="p-1 text-5xl font-bold text-white h-fit">
+                  <div className="flex items-center gap-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="-2 -2 24 24"
@@ -65,7 +67,7 @@ const AuthLayout = () => {
                     >
                       <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
                     </svg>
-                    <h1 className="text-orange-500 text-lg newfont ">
+                    <h1 className="text-lg text-orange-500 newfont ">
                       FriendsFlow!
                     </h1>
                   </div>
