@@ -80,7 +80,7 @@ export const SigninForm = () => {
       ) : (
         <>
           <div className="fade-up bg-white text-black sm:p-3 p-2 sm:w-[450px] w-[95%]  rounded-xl flex flex-col gap-3 justify-center items-center">
-            <div className="flex gap-1 items-center">
+            <div className="flex items-center gap-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-2 -2 24 24"
@@ -88,14 +88,14 @@ export const SigninForm = () => {
               >
                 <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
               </svg>
-              <h1 className="text-orange-500 text-lg newfont ">FriendsFlow!</h1>
+              <h1 className="text-lg text-orange-500 newfont ">FriendsFlow!</h1>
             </div>
             <h1 className="text-2xl font-extrabold">Create a new account</h1>
 
             <p className="text-gray-500">Log in to your acoount</p>
             <form
               onSubmit={handleSubmit(submitHandler)}
-              className="w-full flex flex-col gap-2"
+              className="flex flex-col w-full gap-2"
             >
               <div className="form-group">
                 <label htmlFor="" className="form-label">
@@ -116,7 +116,7 @@ export const SigninForm = () => {
                 <p className="error-msg">{errors.email.message}</p>
               )}
               {error.is && <p className="error-msg">{error.message}</p>}
-              <div className="w-full flex flex-col gap-1">
+              <div className="flex flex-col w-full gap-1">
                 <div className="form-group">
                   <label htmlFor="" className="form-label">
                     Password:
@@ -192,7 +192,7 @@ export const SigninForm = () => {
                 </Link>
               </div>
 
-              <div className="w-full flex flex-col">
+              <div className="flex flex-col w-full">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -200,14 +200,14 @@ export const SigninForm = () => {
                 >
                   {isLogging ? 'logging in...' : 'Sign Up'}
                 </button>
-                <div className="w-full flex  items-center ">
+                <div className="flex items-center w-full ">
                   <div className=" flex-grow h-[1px] bg-gray-500 ml-[80px]"></div>
                   <p className="p-1">or</p>
                   <div className="flex-grow h-[1px] bg-gray-500 mr-[80px] "></div>
                 </div>
                 {/* <div
                   onClick={googleLogin}
-                  className="py-3 cursor-pointer w-full rounded-lg flex justify-center items-center gap-2 bg-orange-500 text-white group hover:bg-white hover:text-orange-500 hover:border hover:border-solid hover:border-orange-500 duration-200"
+                  className="flex items-center justify-center w-full gap-2 py-3 text-white duration-200 bg-orange-500 rounded-lg cursor-pointer group hover:bg-white hover:text-orange-500 hover:border hover:border-solid hover:border-orange-500"
                 >
                   <div>
                     <svg

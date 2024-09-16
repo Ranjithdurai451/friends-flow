@@ -254,6 +254,7 @@ export async function getRecentPosts({
   pageparam: number | null;
 }) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queries: any[] = [Query.orderDesc('$updatedAt'), Query.limit(12)];
     if (pageparam) {
       queries.push(Query.cursorAfter(pageparam.toString()));
@@ -275,6 +276,7 @@ export async function getRecentUsers({
   pageparam: number | null;
 }) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queries: any[] = [Query.orderAsc('$createdAt'), Query.limit(12)];
     if (pageparam) {
       queries.push(Query.cursorAfter(pageparam.toString()));
@@ -534,6 +536,7 @@ export async function updateComment(commentId: string, comment: string) {
 
 export async function searchPosts(query: string, pageparam?: number) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queries: any[] = [Query.search('caption', query), Query.limit(2)];
     if (pageparam) {
       queries.push(Query.cursorAfter(pageparam?.toString()));
@@ -558,6 +561,7 @@ export async function searchUsers({
   query: string;
 }) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queries: any[] = [Query.search('name', query), Query.limit(12)];
     if (pageparam) {
       queries.push(Query.cursorAfter(pageparam?.toString()));
@@ -579,6 +583,7 @@ export async function getPopularPosts({
   pageparam: number | null;
 }) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const queries: any[] = [Query.orderDesc('$createdAt'), Query.limit(15)];
     if (pageparam) {
       queries.push(Query.cursorAfter(pageparam.toString()));

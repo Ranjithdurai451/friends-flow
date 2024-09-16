@@ -18,7 +18,7 @@ const initialUser = {
   bio: '',
 };
 type auth = {
-  user: user | any;
+  user: user | unknown;
   isAuthenticated: boolean;
 };
 const initialState: auth = {
@@ -41,7 +41,7 @@ export const authSlice = createSlice({
 });
 export const authActions = authSlice.actions;
 
-export const setUserState = async (): Promise<any> => {
+export const setUserState = async (): Promise<unknown> => {
   return async (dispatch: Dispatch) => {
     try {
       const currentUser = (await getCurrentUser()) as unknown as user;
