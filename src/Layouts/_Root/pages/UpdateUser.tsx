@@ -12,6 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { updateUserType } from '../../../functions/types/types';
 import { useDispatch } from 'react-redux';
 import { setUserState } from '../../../functions/store/authSlice';
+import { AnyAction } from '@reduxjs/toolkit';
 
 const UpdateUser = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const UpdateUser = () => {
   });
   const { mutateAsync, isPending: isUpdating } = useUpdateUser();
   async function submitHandler(data: updateUserType) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const newPost: any = await mutateAsync({
       name: data?.name,
       username: data.username,
@@ -50,7 +52,7 @@ const UpdateUser = () => {
       alert('failed to create post');
       return;
     }
-    await dispatch(await setUserState());
+    await dispatch((await setUserState()) as AnyAction);
     navigate('/in');
   }
   useEffect(() => {
@@ -64,18 +66,18 @@ const UpdateUser = () => {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="bg-black  w-full min-h-full text-white flex flex-col justify-center items-center "
+      className="flex flex-col items-center justify-center w-full min-h-full text-white bg-black "
     >
-      <h1 className="flex p-4 justify-start items-center gap-2 text-left w-full">
+      <h1 className="flex items-center justify-start w-full gap-2 p-4 text-left">
         <CreateIcon className="fill-white h-[40px] w-[40px]" />
-        <span className=" font-extrabold text-2xl">Edit Profile</span>
+        <span className="text-2xl font-extrabold ">Edit Profile</span>
       </h1>
-      <div className="p-2 w-full flex flex-col sm:gap-3 gap-2">
-        <div className="w-full flex items-center justify-between">
+      <div className="flex flex-col w-full gap-2 p-2 sm:gap-3">
+        <div className="flex items-center justify-between w-full">
           <ProfileUploader mediaUrl={user?.profileUrl} fieldChange={setFiles} />
           <Link
             to={`/in/change-email/${user?.$id}`}
-            className="text-orange-500 hover:text-white duration-200 text-sm sm:text-base"
+            className="text-sm text-orange-500 duration-200 hover:text-white sm:text-base"
           >
             Change email
           </Link>
@@ -92,7 +94,7 @@ const UpdateUser = () => {
         />
       </div>
       {errors.name && <p className="error-msg">{errors.name.message}</p>}
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-3 p-2">
         <label htmlFor="" className=" text-[18px]">
           Username
         </label>
@@ -105,7 +107,7 @@ const UpdateUser = () => {
       {errors.username && (
         <p className="error-msg">{errors.username.message}</p>
       )}
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-3 p-2">
         <label htmlFor="" className=" text-[18px]">
           Add Bio (separated by comma ",")
         </label>
@@ -116,17 +118,17 @@ const UpdateUser = () => {
         />
       </div>
       {errors.bio && <p className="error-msg">{errors.bio.message}</p>}
-      <div className="flex justify-end items-center gap-4 w-full p-2">
+      <div className="flex items-center justify-end w-full gap-4 p-2">
         <Link
           to={'/in/profile/' + user?.$id}
-          className="rounded py-2 px-4 bg-white border border-solid border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white duration-200"
+          className="px-4 py-2 text-orange-500 duration-200 bg-white border border-orange-500 border-solid rounded hover:bg-orange-500 hover:text-white"
         >
           Cancel
         </Link>
         <button
           type="submit"
           disabled={isUpdating || isSubmitting}
-          className="rounded py-2 px-4 hover:bg-white duration-200 hover:text-orange-500 disabled:hover:bg-orange-500 disabled:hover:text-white bg-orange-500 text-white disabled:opacity-20 disabled:cursor-not-allowed"
+          className="px-4 py-2 text-white duration-200 bg-orange-500 rounded hover:bg-white hover:text-orange-500 disabled:hover:bg-orange-500 disabled:hover:text-white disabled:opacity-20 disabled:cursor-not-allowed"
         >
           {isUpdating ? 'Updating...' : 'Update'}
         </button>
