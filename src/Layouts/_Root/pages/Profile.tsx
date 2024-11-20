@@ -26,24 +26,24 @@ const Profile = () => {
   if (active == 'posts') {
     content =
       user?.posts?.length > 0 ? (
-        <div className=" xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
+        <div className="w-full p-5  xl:columns-4 sm:columns-3 columns-2 gap-x-4">
           {user?.posts?.map((post: any) => (
             <NewPostCard key={post.$id} post={post}></NewPostCard>
           ))}
         </div>
       ) : (
-        <div className="text-lg w-full text-white">No posts yet</div>
+        <div className="w-full text-lg text-white">No posts yet</div>
       );
   } else if (active == 'saved') {
     content =
       user?.saves?.length > 0 ? (
-        <div className="xl:columns-4 sm:columns-3 columns-2 gap-x-4  w-full p-5">
+        <div className="w-full p-5 xl:columns-4 sm:columns-3 columns-2 gap-x-4">
           {user?.saves?.map((post: any) => (
             <NewPostCard key={post.$id} post={post.posts}></NewPostCard>
           ))}
         </div>
       ) : (
-        <div className="text-lg w-full text-white">No posts saved yet</div>
+        <div className="w-full text-lg text-white">No posts saved yet</div>
       );
   }
 
@@ -98,27 +98,28 @@ const Profile = () => {
   }, [isSuccess]);
 
   return (
-    <div className="flex w-full sm:pt-10 pt-5 sm:px-10 px-3 flex-col sm:gap-10 gap-8">
+    <div className="flex flex-col w-full gap-8 px-3 pt-5 sm:pt-10 sm:px-10 sm:gap-10">
       <div>
         <Link to={'/in'} className="text-orange-500">
           <span></span> Back
         </Link>
       </div>
-      <div className="flex w-full  sm:gap-8 gap-4 text-white ">
+      <div className="flex w-full gap-4 text-white sm:gap-8 ">
         <aside>
           <img
             src={user?.profileUrl}
             alt=""
             className="sm:w-[150px] sm:h-[150px] h-[60px] w-[60px] rounded-full"
+            loading="lazy"
           />
         </aside>
         <main className="flex justify-between sm:w-[360px] w-[300px] lg:w-[450px] sm:pt-5 flex-col gap-4">
-          <div className="w-full  flex justify-between items-center">
+          <div className="flex items-center justify-between w-full">
             <div>
               <p className="text-white capitalize sm:text-lg text-md">
                 {user?.name}
               </p>
-              <p className="text-gray-500 sm:text-md text-sm text-left">
+              <p className="text-sm text-left text-gray-500 sm:text-md">
                 {user?.username}
               </p>
             </div>
@@ -126,19 +127,19 @@ const Profile = () => {
               {currentUser?.id == user?.$id ? (
                 <Link
                   to={`/in/update-profile/${user?.$id}`}
-                  className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-orange-500 hover:bg-opacity-10"
+                  className="flex items-center gap-3 px-3 py-2 rounded group sm:px-5 sm:py-4 hover:bg-orange-500 hover:bg-opacity-10"
                 >
                   <EditIcon className="sm:w-[25px] sm:h-[25px] w-[20px] h-[20px] fill-orange-500" />
-                  <span className="text-orange-500 text-sm sm:text-md">
+                  <span className="text-sm text-orange-500 sm:text-md">
                     Edit Profile
                   </span>
                 </Link>
               ) : (
                 <button
                   onClick={handleFollow}
-                  className="flex gap-3 items-center group sm:px-5 sm:py-4 px-3 py-2 rounded hover:bg-orange-500 hover:bg-opacity-10"
+                  className="flex items-center gap-3 px-3 py-2 rounded group sm:px-5 sm:py-4 hover:bg-orange-500 hover:bg-opacity-10"
                 >
-                  <span className="text-orange-500 text-sm sm:text-md">
+                  <span className="text-sm text-orange-500 sm:text-md">
                     {isFollow ? 'Unfollow' : 'Follow'}
                   </span>
                 </button>
@@ -146,7 +147,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className=" flex w-full justify-between items-center">
+          <div className="flex items-center justify-between w-full ">
             <div className="flex flex-col ">
               <div className="sm:text-md text-[18px] text-orange-500">
                 {user?.posts.length}
@@ -166,7 +167,7 @@ const Profile = () => {
               <div className="sm:text-md text-[18px]">Following</div>
             </div>
           </div>
-          <ul className=" ">
+          <ul className="">
             {user?.bio.map((bio: any, index: any) => (
               <li key={index} className="text-white text-opacity-70">
                 {bio}
@@ -175,8 +176,8 @@ const Profile = () => {
           </ul>
         </main>
       </div>
-      <div className="w-full flex flex-col gap-8 px-10">
-        <div className=" flex w-full gap-5 items-center">
+      <div className="flex flex-col w-full gap-8 px-10">
+        <div className="flex items-center w-full gap-5 ">
           <button
             className={` flex gap-3 items-center group  sm:px-5 sm:py-4 px-3 py-2 rounded  ${
               active == 'posts' ? 'newactive' : 'newunactive'

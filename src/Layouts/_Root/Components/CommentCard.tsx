@@ -47,6 +47,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
           height={40}
           alt=""
           className="rounded-full aspect-square"
+          loading="lazy"
         />
       </div>
       {!editMode && (
@@ -126,8 +127,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
             placeholder="Update your comment..."
           />
           <div
-            className={`
-              flex justify-end items-center`}
+            className={`flex justify-end items-center`}
           >
             <div
               onClick={() => {

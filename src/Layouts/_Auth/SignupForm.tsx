@@ -60,17 +60,7 @@ const SignupForm = () => {
         <Loader2 />
       ) : (
         <>
-          <div className=" fade-up bg-white text-black sm:p-5 sm:w-[450px] w-[95%]  p-2 rounded-xl flex flex-col gap-3 justify-center items-center ">
-            <div className="flex items-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-2 -2 24 24"
-                className="w-[35px] h-[35px] fill-orange-500"
-              >
-                <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
-              </svg>
-              <h1 className="text-lg text-orange-500 newfont ">FriendsFlow!</h1>
-            </div>
+          <div className=" fade-up bg-white  text-black sm:p-5 sm:w-[420px] w-[95%]  p-2 rounded-xl flex flex-col gap-1 justify-center items-center ">
             <h1 className="text-2xl font-extrabold">Create a new account</h1>
             <p className="text-gray-500">
               To use followme,please enter your details
@@ -80,9 +70,6 @@ const SignupForm = () => {
               className="flex flex-col w-full gap-2"
             >
               <div className="form-group">
-                <label htmlFor="" className="form-label">
-                  Name :
-                </label>
                 <input
                   type="text"
                   placeholder="Name"
@@ -93,14 +80,12 @@ const SignupForm = () => {
                   }`}
                   {...register('name')}
                 />
+                {errors.name && (
+                  <p className="error-msg ">{errors.name.message}</p>
+                )}
               </div>
-              {errors.name && (
-                <p className="error-msg ">{errors.name.message}</p>
-              )}
+
               <div className="form-group">
-                <label htmlFor="" className="form-label">
-                  Username :
-                </label>
                 <input
                   type="text"
                   placeholder="Username"
@@ -111,14 +96,12 @@ const SignupForm = () => {
                   }`}
                   {...register('username')}
                 />
+                {errors.username && (
+                  <p className="error-msg">{errors.username.message}</p>
+                )}
               </div>
-              {errors.username && (
-                <p className="error-msg">{errors.username.message}</p>
-              )}
+
               <div className="form-group">
-                <label htmlFor="" className="form-label">
-                  Email :
-                </label>
                 <input
                   type="text"
                   placeholder="Email"
@@ -129,14 +112,12 @@ const SignupForm = () => {
                       : ''
                   }`}
                 />
+                {errors.email && (
+                  <p className="error-msg">{errors.email.message}</p>
+                )}
               </div>
-              {errors.email && (
-                <p className="error-msg">{errors.email.message}</p>
-              )}
+
               <div className="form-group">
-                <label htmlFor="" className="form-label">
-                  Password :
-                </label>
                 <div className="password-wrapper">
                   <input
                     type={passwordVisible ? 'text' : 'password'}
@@ -195,14 +176,12 @@ const SignupForm = () => {
                     )}
                   </div>
                 </div>
+                {errors.password && (
+                  <p className="error-msg">{errors.password.message}</p>
+                )}
               </div>
-              {errors.password && (
-                <p className="error-msg">{errors.password.message}</p>
-              )}
+
               <div className="form-group">
-                <label htmlFor="" className="form-label">
-                  Confirm Password :
-                </label>
                 <div className="password-wrapper">
                   <input
                     type={confirmpasswordVisible ? 'text' : 'password'}
@@ -261,10 +240,11 @@ const SignupForm = () => {
                     )}
                   </div>
                 </div>
+                {errors.confirmpassword && (
+                  <p className="error-msg ">{errors.confirmpassword.message}</p>
+                )}
               </div>
-              {errors.confirmpassword && (
-                <p className="error-msg ">{errors.confirmpassword.message}</p>
-              )}
+
               <button
                 disabled={isSubmitting}
                 className="py-3 border-solid border-[1px]  w-full rounded-lg  text-white bg-orange-500  disabled:cursor-not-allowed hover:bg-white hover:text-orange-500 duration-200 "

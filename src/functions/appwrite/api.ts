@@ -226,10 +226,10 @@ export async function getFilePreview(id: string) {
     const fileUrl = storage.getFilePreview(
       appwriteConfig.storageId,
       id,
-      300,
-      300,
-      'top',
-      5
+      600, // Increase width
+      600, // Increase height
+      'center', // Change crop to center if needed
+      70 // Increase quality (if the API accepts a higher value)
     );
     if (!fileUrl) throw new Error();
 

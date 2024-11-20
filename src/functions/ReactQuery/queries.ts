@@ -387,7 +387,6 @@ export const useLikePost = (postId: string) => {
       return { previousPost };
     },
     onError(_error, _variables, context: any) {
-      console.log(context);
       queryClient.setQueryData(['posts'], context.previousPost);
     },
     onSettled() {

@@ -100,7 +100,7 @@ const PostDetail = () => {
         <Loader2 />
       ) : (
         <div className="sm:py-12 sm:px-8">
-          <div className="w-full flex-col gap-6">
+          <div className="flex-col w-full gap-6">
             <div className="flex flex-col lg:flex-row w-full gap-6 lg:h-[70vh] text-white bg-white bg-opacity-[0.06] p-5 rounded-[20px] flex-shrink-0 ">
               <main className="lg:w-[40%] w-full">
                 <img
@@ -110,7 +110,7 @@ const PostDetail = () => {
                 />
               </main>
               <div className="lg:w-[60%] w-full">
-                <header className="flex gap-3 justify-center items-center ">
+                <header className="flex items-center justify-center gap-3 ">
                   <Link
                     to={`/in/profile/${post?.creator.$id}`}
                     className="rounded-full"
@@ -121,10 +121,11 @@ const PostDetail = () => {
                       width={45}
                       height={45}
                       className="rounded-full aspect-square"
+                      loading="lazy"
                     />
                   </Link>
                   <div className="flex flex-col flex-grow">
-                    <span className="text-md capitalize">
+                    <span className="capitalize text-md">
                       {post?.creator.name}
                     </span>
                     <div className="flex gap-2 text-sm text-white text-opacity-30">
@@ -134,7 +135,7 @@ const PostDetail = () => {
                   </div>
                   <div>
                     {post?.creator.$id == user?.id && (
-                      <div className="flex gap-3 justify-center items-center">
+                      <div className="flex items-center justify-center gap-3">
                         <Link to={`/in/update-post/${post?.$id}`}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -167,20 +168,21 @@ const PostDetail = () => {
                   </div>
                   <PostStats post={post} userId={user.id} isPostDetail={true} />
                   <div>
-                    <div className=" p-3 flex flex-col gap-5 w-full text-white">
-                      <div className="w-full flex justify-between items-center">
+                    <div className="flex flex-col w-full gap-5 p-3 text-white ">
+                      <div className="flex items-center justify-between w-full">
                         <div className="text-md">
                           <span>{post?.comments.length} </span> Comments
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 w-full ">
+                      <div className="flex items-center w-full gap-3 ">
                         <img
                           src={user.profileUrl}
                           alt=""
                           width={60}
                           height={60}
                           className="rounded-full aspect-square"
+                          loading="lazy"
                         />
                         <div className="flex-grow space-y-2">
                           <input
@@ -237,15 +239,15 @@ const PostDetail = () => {
               </div>
             </div>
             <div className="mt-8">
-              <h1 className="text-3xl text-white px-6">More Related Posts</h1>
+              <h1 className="px-6 text-3xl text-white">More Related Posts</h1>
               {/* {isLoadingPosts ? (
                 <Spinner />
               ) : posts?.documents.filter((post: any) => post.$id !== id)
                   .length == 0 ? (
-                <p className="text-white p-5">No related posts available</p>
+                <p className="p-5 text-white">No related posts available</p>
               ) : (
                 <>
-                  <div className="columns-1 lg:columns-3 md:columns-2 xl:columns-4 gap-x-8  w-full p-5">
+                  <div className="w-full p-5 columns-1 lg:columns-3 md:columns-2 xl:columns-4 gap-x-8">
                     {posts?.documents
                       .filter((post: any) => post.$id !== id)
                       .map((post: any) => (
@@ -271,7 +273,7 @@ const PostDetail = () => {
                 ) === 0 ? (
                 <div>No results found</div>
               ) : (
-                <div className="grid xl:grid-cols-5 md:grid-cols-4 grid-cols-3 gap-4 p-4">
+                <div className="grid grid-cols-3 gap-4 p-4 xl:grid-cols-5 md:grid-cols-4">
                   {posts?.pages?.map((page) =>
                     page?.documents
                       ?.filter((post: any) => post.$id !== id)

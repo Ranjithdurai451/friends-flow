@@ -44,21 +44,6 @@ export const SigninForm = () => {
         alert('login in failed');
         return;
       }
-      // await queryClient.prefetchInfiniteQuery({
-      //   queryKey: ['posts'],
-      //   queryFn: ({ pageParam }) => getRecentPosts(pageParam),
-      //   initialPageParam: { pageparam: null },
-      // });
-      // queryClient.prefetchInfiniteQuery({
-      //   queryKey: ['users'],
-      //   queryFn: ({ pageParam }) => getRecentUsers(pageParam),
-      //   initialPageParam: { pageparam: null },
-      // });
-      // queryClient.prefetchInfiniteQuery({
-      //   queryKey: ['popular-posts'],
-      //   queryFn: ({ pageParam }) => getPopularPosts(pageParam),
-      //   initialPageParam: { pageparam: null },
-      // });
 
       setIsLoading(true);
       await dispatch((await setUserState()) as AnyAction);
@@ -80,17 +65,7 @@ export const SigninForm = () => {
         <Loader2 />
       ) : (
         <>
-          <div className="fade-up bg-white text-black sm:p-3 p-2 sm:w-[450px] w-[95%]  rounded-xl flex flex-col gap-3 justify-center items-center">
-            <div className="flex items-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-2 -2 24 24"
-                className="w-[35px] h-[35px] fill-orange-500"
-              >
-                <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
-              </svg>
-              <h1 className="text-lg text-orange-500 newfont ">FriendsFlow!</h1>
-            </div>
+          <div className="fade-up bg-white text-black sm:p-3 p-2 sm:w-[400px] w-[95%]  rounded-xl flex flex-col gap-1 justify-center items-center">
             <h1 className="text-2xl font-extrabold">Create a new account</h1>
 
             <p className="text-gray-500">Log in to your acoount</p>
@@ -99,9 +74,6 @@ export const SigninForm = () => {
               className="flex flex-col w-full gap-2"
             >
               <div className="form-group">
-                <label htmlFor="" className="form-label">
-                  Email :
-                </label>
                 <input
                   type="text"
                   className={`form-input ${
@@ -112,17 +84,14 @@ export const SigninForm = () => {
                   placeholder="Email"
                   {...register('email')}
                 />
+                {errors.email && (
+                  <p className="error-msg">{errors.email.message}</p>
+                )}
               </div>
-              {errors.email && (
-                <p className="error-msg">{errors.email.message}</p>
-              )}
+
               {error.is && <p className="error-msg">{error.message}</p>}
               <div className="flex flex-col w-full gap-1">
                 <div className="form-group">
-                  <label htmlFor="" className="form-label">
-                    Password:
-                  </label>
-
                   <div className="password-wrapper">
                     <input
                       type={passwordVisible ? 'text' : 'password'}
@@ -181,10 +150,11 @@ export const SigninForm = () => {
                       )}
                     </div>
                   </div>
+                  {errors.password && (
+                    <p className="error-msg">{errors.password.message}</p>
+                  )}
                 </div>
-                {errors.password && (
-                  <p className="error-msg">{errors.password.message}</p>
-                )}
+
                 <Link
                   to="/forgot-password"
                   className="w-full text-right text-blue-600 hover:text-blue-800"
@@ -199,7 +169,7 @@ export const SigninForm = () => {
                   disabled={isSubmitting}
                   className="py-3 border-solid border-[1px]  w-full rounded-lg  text-white bg-orange-500  disabled:cursor-not-allowed hover:bg-white hover:text-orange-500 duration-200 "
                 >
-                  {isLogging ? 'logging in...' : 'Sign Up'}
+                  {isLogging ? 'signing in...' : 'Sign In'}
                 </button>
                 <div className="flex items-center w-full ">
                   <div className=" flex-grow h-[1px] bg-gray-500 ml-[80px]"></div>
@@ -234,7 +204,7 @@ export const SigninForm = () => {
                   to="/signup"
                   className="text-blue-600 underline hover:text-blue-800"
                 >
-                  Sign In
+                  Sign Up
                 </Link>
               </p>
             </form>

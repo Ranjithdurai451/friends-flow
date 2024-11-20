@@ -25,8 +25,8 @@ const LeftBar = () => {
   return (
     <div className="h-full py-5 xl:px-6 xl:pr-[50px] bg-black hidden sm:flex flex-col gap-5 shrink-0 border-r-[1px] border-orange-500 border-solid border-opacity-20">
       <div>
-        <Link to="/in" className="  p-1 h-fit">
-          <div className="flex gap-1 items-center justify-center">
+        <Link to="/in" className="p-1 h-fit">
+          <div className="flex items-center justify-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="-2 -2 24 24"
@@ -34,7 +34,7 @@ const LeftBar = () => {
             >
               <path d="M7.671 13.44L19.926 1.384c.116.408.096.847-.061 1.25l-6.25 16.08c-.395 1.016-1.532 1.538-2.54 1.165a1.9 1.9 0 01-1.097-1.054l-1.981-4.77c-.09-.216-.2-.423-.326-.617zm-1.41-1.288a3.82 3.82 0 00-.317-.148l-4.77-1.981C.185 9.61-.268 8.465.165 7.465a2.022 2.022 0 011.121-1.079l16.08-6.25c.46-.179.94-.175 1.365-.025L6.26 12.152z"></path>
             </svg>
-            <h1 className="text-orange-500 text-lg newfont xl:block hidden w-full  ">
+            <h1 className="hidden w-full text-lg text-orange-500 newfont xl:block ">
               FriendsFlow!
             </h1>
           </div>
@@ -42,24 +42,26 @@ const LeftBar = () => {
       </div>
       <Link
         to={`/in/profile/${user?.id}`}
-        className="pl-3 flex gap-2 justify-start items-center "
+        className="flex items-center justify-start gap-2 pl-3 "
       >
         <img
           src={user?.profileUrl}
           alt=""
-          width={50}
-          height={50}
+          width={45}
+          height={45}
           className="rounded-full aspect-square"
+          loading="lazy"
         />
-        <div className="p-1  flex-col gap-0 xl:flex hidden  ">
+
+        <div className="flex-col hidden gap-0 p-1 xl:flex ">
           <p className="text-white capitalize text-[20px]">{user?.name}</p>
           <p className="text-gray-500 text-[12px] text-left">
             {user?.username}
           </p>
         </div>
       </Link>
-      <div className="flex flex-col justify-between items-center flex-grow ">
-        <nav className="flex flex-col gap-4 py-5 px-2">
+      <div className="flex flex-col items-center justify-between flex-grow ">
+        <nav className="flex flex-col gap-4 px-2 py-5">
           <NavLink
             to="/in"
             className={({ isActive }) =>
@@ -139,7 +141,7 @@ const LeftBar = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             width={35}
             height={35}
-            className=" fill-orange-500  "
+            className=" fill-orange-500"
           >
             <g id="grid_system" />
             <g id="_icons">
@@ -149,7 +151,7 @@ const LeftBar = () => {
               </g>
             </g>
           </svg>
-          <span className="xl:block hidden">
+          <span className="hidden xl:block">
             {' '}
             {isPending ? 'Logging out ...' : 'Logout'}
           </span>

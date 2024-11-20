@@ -1,10 +1,10 @@
 const Loader = () => {
   return (
-    <div className="h-screen w-screen   flex justify-center items-center">
+    <div className="h-screen bg-black w-screen   flex justify-center items-center">
       <div className="wrapper">
-        <div className="circle"></div>
-        <div className="circle"></div>
-        <div className="circle"></div>
+        <div className="circle "></div>
+        <div className="circle "></div>
+        <div className="circle "></div>
         <div className="shadow"></div>
         <div className="shadow"></div>
         <div className="shadow"></div>

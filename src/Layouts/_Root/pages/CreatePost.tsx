@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
 import FileUploader from '../Components/FIleUploader';
-import { Link, redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NewPostType } from '../../../functions/types/types';
 import { useSelector } from 'react-redux';
 import Spinner from '../../../ui/Spinner';
@@ -11,6 +11,7 @@ import { NewPostSchema } from '../../../functions/Schema';
 import { useCreateNewPost } from '../../../functions/ReactQuery/queries';
 
 const CreatePost = () => {
+  const navigate = useNavigate();
   const user = useSelector((state: any) => state.auth.user);
   const [image, setImage] = useState<File[]>([]);
   const [error, setError] = useState({
@@ -42,12 +43,12 @@ const CreatePost = () => {
       image: image,
       id: user.id,
     });
-
+    console.log(newPost, 'postcreation');
     if (!newPost) {
-      alert('failed to create post');
+      alert('failed to create post,reduce the image size');
       return;
     }
-    redirect('/in');
+    navigate('/in');
   }
   useEffect(() => {
     if (image.length > 0) {
@@ -61,13 +62,13 @@ const CreatePost = () => {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="bg-black  w-full min-h-full text-white flex flex-col justify-center items-center "
+      className="flex flex-col items-center justify-center w-full min-h-full text-white bg-black "
     >
-      <h1 className="flex p-4 justify-start items-center gap-2 text-left w-full">
+      <h1 className="flex items-center justify-start w-full gap-2 p-4 text-left">
         <CreateIcon className="fill-white h-[40px] w-[40px]" />
-        <span className=" font-extrabold text-2xl">Create Post</span>
+        <span className="text-2xl font-extrabold ">Create Post</span>
       </h1>
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-3 p-2">
         <label htmlFor="" className=" text-[18px]">
           Caption
         </label>
@@ -78,14 +79,14 @@ const CreatePost = () => {
         />
       </div>
       {errors.caption && <p className="error-msg">{errors.caption.message}</p>}
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-3 p-2">
         <label htmlFor="" className=" text-[18px]">
           Add Photos
         </label>
         <FileUploader mediaUrl="" fieldChange={setImage} />
       </div>
       {error.is && <p className="error-msg ">{error.message}</p>}
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-3 p-2">
         <label htmlFor="" className=" text-[18px]">
           Add Location
         </label>
@@ -98,7 +99,7 @@ const CreatePost = () => {
       {errors.location && (
         <p className="error-msg">{errors.location.message}</p>
       )}
-      <div className="p-2 w-full flex flex-col gap-3">
+      <div className="flex flex-col w-full gap-3 p-2">
         <label htmlFor="" className=" text-[18px]">
           Add Tags (separated by comma ",")
         </label>
@@ -109,17 +110,17 @@ const CreatePost = () => {
         />
       </div>
       {errors.tags && <p className="error-msg">{errors.tags.message}</p>}
-      <div className="flex justify-end items-center gap-4 w-full p-2">
+      <div className="flex items-center justify-end w-full gap-4 p-2">
         <Link
           to={'/in'}
-          className="rounded py-2 px-4 bg-white border border-solid border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white duration-200"
+          className="px-4 py-2 text-orange-500 duration-200 bg-white border border-orange-500 border-solid rounded hover:bg-orange-500 hover:text-white"
         >
           Cancel
         </Link>
         <button
           type="submit"
           disabled={!isDirty || !isValid || isSubmitting}
-          className="rounded py-2 px-4 hover:bg-white duration-200 hover:text-orange-500 disabled:hover:bg-orange-500 disabled:hover:text-white bg-orange-500 text-white disabled:opacity-20 disabled:cursor-not-allowed"
+          className="px-4 py-2 text-white duration-200 bg-orange-500 rounded hover:bg-white hover:text-orange-500 disabled:hover:bg-orange-500 disabled:hover:text-white disabled:opacity-20 disabled:cursor-not-allowed"
         >
           {isPending ? <Spinner /> : 'Post'}
         </button>

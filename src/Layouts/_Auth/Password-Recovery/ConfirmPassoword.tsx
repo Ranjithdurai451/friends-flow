@@ -24,7 +24,6 @@ const ConfirmPassoword = () => {
     const searchParams = new URLSearchParams(window.location.search);
     const userID = searchParams.get('userId') as string;
     const secret = searchParams.get('secret') as string;
-    console.log(userID, secret);
 
     try {
       if (newPassword && RepeatednewPassword) {
@@ -45,18 +44,15 @@ const ConfirmPassoword = () => {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="bg-white flex flex-col p-6  rounded-lg gap-3 items-end"
+      className="flex flex-col items-end gap-3 p-6 bg-white rounded-lg"
     >
-      <h1 className="font-bold text-lg  w-full text-left">
+      <h1 className="w-full text-lg font-bold text-left">
         Change your password
       </h1>
       <p className="text-[15px] font-light text-left w-full">
         Choose a new password for your account
       </p>
       <div className="form-group">
-        <label htmlFor="" className="form-label">
-          Password :
-        </label>
         <div className="password-wrapper">
           <input
             type={passwordVisible ? 'text' : 'password'}
@@ -115,14 +111,12 @@ const ConfirmPassoword = () => {
             )}
           </div>
         </div>
+        {errors.newPassword && (
+          <p className="error-msg">{errors.newPassword.message}</p>
+        )}
       </div>
-      {errors.newPassword && (
-        <p className="error-msg">{errors.newPassword.message}</p>
-      )}
+
       <div className="form-group">
-        <label htmlFor="" className="form-label">
-          Confirm Password :
-        </label>
         <div className="password-wrapper">
           <input
             type={confirmpasswordVisible ? 'text' : 'password'}
@@ -181,12 +175,12 @@ const ConfirmPassoword = () => {
             )}
           </div>
         </div>
+        {errors.RepeatednewPassword && (
+          <p className="error-msg">{errors.RepeatednewPassword.message}</p>
+        )}
       </div>
 
-      {errors.RepeatednewPassword && (
-        <p className="error-msg">{errors.RepeatednewPassword.message}</p>
-      )}
-      <div className="w-full flex justify-between px-4">
+      <div className="flex justify-between w-full px-4">
         <Link
           to="/signin"
           className="text-black border-[1px] border-solid border-gray-500 rounded px-5 py-2 cursor-pointer"
@@ -196,7 +190,7 @@ const ConfirmPassoword = () => {
         <button
           type="submit"
           disabled={!isValid || !isDirty}
-          className=" px-3 py-2 bg-orange-500 text-white rounded w-[50%] disabled:opacity-60 disabled:cursor-not-allowed "
+          className="px-3 py-2 text-white bg-orange-500 rounded  disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Submitting...' : 'Change Password'}
         </button>

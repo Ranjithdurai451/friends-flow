@@ -10,9 +10,10 @@ const UserCard = ({ user }: UserCardType) => {
       <img
         src={user?.profileUrl}
         alt=""
-        width={50}
-        height={50}
+        width={45}
+        height={45}
         className="rounded-full aspect-square"
+        loading="lazy"
       />
       <p className="text-white sm:text-lg text-md">{user?.name}</p>
       <p className="text-sm text-white text-opacity-30">{user?.username}</p>

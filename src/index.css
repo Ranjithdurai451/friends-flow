@@ -17,8 +17,8 @@
 
 .bg {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=600);
-  background-size: cover;
+    url(https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=600) !important;
+  background-size: cover !important;
   width: 100vw;
   height: 100vh;
   /* filter: blur(3px); */
@@ -51,19 +51,17 @@
 }
 
 .form-group {
-  @apply flex h-[45px]   items-center w-full sm:w-[400px] mb-2;
+  @apply flex  flex-col   items-center w-full  mb-2 gap-1;
 }
-.form-label {
-  @apply sm:w-[35%] w-[30%] h-full text-[14px] pl-2 font-normal flex justify-center items-center;
-}
+
 .form-input {
-  @apply rounded bg-gray-200 sm:w-[65%]  w-[70%] h-full px-3 placeholder:text-xs placeholder:text-gray-400 focus-within:border-[1px] focus-within:border-solid focus-within:border-black;
+  @apply rounded bg-gray-200  h-[45px]  w-full  px-3 placeholder:text-xs placeholder:text-gray-600 focus-within:border-[1px] focus-within:border-solid focus-within:border-black;
 }
 .password-wrapper {
-  @apply rounded relative bg-gray-100 sm:w-[65%]  w-[70%] h-full;
+  @apply rounded relative bg-gray-100   w-full h-[45px];
 }
 .form-password {
-  @apply rounded w-full pr-5 px-3  bg-gray-200 h-full  placeholder:text-xs placeholder:text-gray-400 focus-within:border-[1px] focus-within:border-solid focus-within:border-black;
+  @apply rounded w-full pr-5 px-3  bg-gray-200 h-full  placeholder:text-xs placeholder:text-gray-600 focus-within:border-[1px] focus-within:border-solid focus-within:border-black;
 }
 .password-btn {
   position: absolute;
@@ -82,7 +80,7 @@
   animation: fadeUp 1s ease forwards;
 }
 .error-msg {
-  @apply text-orange-500 text-[12px] w-full text-end;
+  @apply text-orange-500 text-xs w-full text-end;
 }
 @keyframes fadeUp {
   from {
@@ -106,7 +104,7 @@
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background-color: #000;
+  background-color: white;
   left: 15%;
   transform-origin: 50%;
   animation: circle7124 0.5s alternate infinite ease;

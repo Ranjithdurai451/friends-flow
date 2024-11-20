@@ -26,7 +26,7 @@ const Modal = ({
   return createPortal(
     <dialog
       ref={dialog}
-      className="bg-transparent w-full h-full flex justify-center items-center left-6"
+      className="flex items-center justify-center w-full h-full bg-transparent left-6"
     >
       <div className={className}>{children}</div>
     </dialog>,

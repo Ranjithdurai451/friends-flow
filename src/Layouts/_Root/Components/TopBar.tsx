@@ -21,8 +21,8 @@ const TopBar = () => {
   const user = useSelector((state: any) => state.auth.user);
   return (
     <header className="flex justify-between py-2 px-3 w-full bg-black sm:hidden flex-shrink-0 border-[0px] border-b-[2px] border-orange-500 border-solid border-opacity-20">
-      <Link to="/in" className="  p-2 h-fit">
-        <div className="flex gap-1 items-center">
+      <Link to="/in" className="p-2  h-fit">
+        <div className="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-2 -2 24 24"
@@ -33,14 +33,15 @@ const TopBar = () => {
           <h1 className="text-orange-500 text-md newfont ">FriendsFlow!</h1>
         </div>
       </Link>
-      <div className="p-2 flex gap-2 ">
-        <Link to={`in/profile/${user.id}`} className=" rounded-full">
+      <div className="flex gap-2 p-2 ">
+        <Link to={`/in/profile/${user.id}`} className="rounded-full ">
           <img
             src={user.profileUrl}
             alt=""
             width={35}
             height={35}
             className="rounded-full aspect-square"
+            loading="lazy"
           />
         </Link>
         <button onClick={submitHandler}>
@@ -52,7 +53,7 @@ const TopBar = () => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             width={35}
             height={35}
-            className=" fill-orange-500 hover:opacity-50 duration-200"
+            className="duration-200  fill-orange-500 hover:opacity-50"
           >
             <g id="grid_system" />
             <g id="_icons">

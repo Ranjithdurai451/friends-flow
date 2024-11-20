@@ -22,10 +22,11 @@ export const SavedPostCard = ({
           src={post?.posts.imageUrl}
           alt=""
           className=" h-auto w-full rounded-[10px] object-cover"
+          loading="lazy"
         />
         {isSuccess && (
-          <div className="absolute hidden inset-0 p-3 group-hover:flex items-center justify-between  duration-300 w-full bg-black bg-opacity-70">
-            <div className="flex items-center gap-10 w-full justify-center">
+          <div className="absolute inset-0 items-center justify-between hidden w-full p-3 duration-300 bg-black group-hover:flex bg-opacity-70">
+            <div className="flex items-center justify-center w-full gap-10">
               <button className="flex items-center gap-1">
                 <LikeIcon className="w-[35px] h-[35px] fill-orange-500" />
                 <span>{data?.likes?.length}</span>

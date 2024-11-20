@@ -5,51 +5,52 @@ import { Link, redirect } from 'react-router-dom';
 const ForgotPassword = () => {
   const email = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
   async function submitHandler(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     e.preventDefault();
-    if (email.current?.value.trim() === '') return;
+    if (
+      email.current?.value.trim() === '' ||
+      !email.current?.value.includes('@')
+    ) {
+      setErrorMsg('invalid email address');
+    }
     try {
       if (email.current?.value) {
         var promise = await account.createRecovery(
           email.current.value,
-          'http://localhost:5173/confirm-password'
+          `${import.meta.env.VITE_APPWRITE_CLIENT_URL}/confirm-password`
         );
         if (!promise) throw new Error();
         setMessage(true);
       }
     } catch (error) {
+      setErrorMsg('invalid email address');
       console.log(error);
       redirect('/');
     }
   }
   return (
-    <form className="bg-white flex flex-col sm:p-5 p-3  rounded-lg gap-3 items-end">
-      <h1 className="font-bold text-lg text-left w-full">
+    <form className="flex flex-col items-end gap-3 p-3 bg-white rounded-lg sm:p-5">
+      <h1 className="w-full text-lg font-bold text-left">
         Forgot your password?
       </h1>
       <p className="text-[15px] font-light">
         Enter your email below and we'll send you a link to reset your password
       </p>
       <div className=" flex h-[45px]    w-full mb-2">
-        <label
-          htmlFor=""
-          className="w-[30%]  h-full text-[14px] font-normal flex justify-center items-center"
-        >
-          Email :
-        </label>
         <input
           ref={email}
           type="text"
           placeholder="Enter your email"
-          className="rounded bg-gray-100 w-[70%] h-full px-3 placeholder:text-xs placeholder:text-gray-400 focus-within:border-[1px] focus-within:border-solid focus-within:border-black"
+          className="rounded bg-gray-100 w-full h-full px-3 placeholder:text-xs placeholder:text-gray-600 focus-within:border-[1px] focus-within:border-solid focus-within:border-black"
         />
       </div>
       <button
         type="submit"
         onClick={(e) => submitHandler(e)}
-        className=" px-3 py-3 bg-orange-500 text-white rounded w-full "
+        className="w-full px-3 py-3 text-white bg-orange-500 rounded "
       >
         Send
       </button>
@@ -58,9 +59,10 @@ const ForgotPassword = () => {
           Message has been sent to your email successfully
         </p>
       )}
+      {errorMsg && <p className="error-msg">{errorMsg}</p>}
 
       <hr className="w-full h-[1px] bg-black bg-opacity-40" />
-      <div className="w-full flex justify-between items-center p-2">
+      <div className="flex items-center justify-between w-full p-2">
         <p>Remember your password?</p>
         <Link
           to="/signin"

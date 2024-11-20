@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Outlet, NavLink, Navigate } from 'react-router-dom';
+import { Outlet, NavLink, Navigate, redirect } from 'react-router-dom';
 import { authActions, setUserState } from '../../functions/store/authSlice';
 import Loader from '../../ui/Loader';
 import { queryClient } from '../../functions/store';
@@ -39,10 +39,15 @@ const AuthLayout = () => {
         localStorage.getItem('cookieFallback') == '[]'
       ) {
         dispatch(authActions.reset());
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 2000);
       } else {
         dispatch((await setUserState()) as AnyAction);
-        setIsLoading(false);
+        redirect('/in');
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 2000);
       }
     }
 

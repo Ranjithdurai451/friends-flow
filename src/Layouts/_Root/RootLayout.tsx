@@ -1,33 +1,62 @@
-import { Outlet, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { Navigate, Outlet, redirect } from 'react-router-dom';
 
 import TopBar from './Components/TopBar';
 import BottomBar from './Components/BottomBar';
 import LeftBar from './Components/LeftBar';
 import { SkeletonTheme } from 'react-loading-skeleton';
-import { useGetUser } from '../../functions/ReactQuery/queries';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { AnyAction } from '@reduxjs/toolkit';
+import { useState, useEffect } from 'react';
+import { authActions, setUserState } from '../../functions/store/authSlice';
+import Loader from '../../ui/Loader';
 const RootLayout = () => {
-  const isauth = useSelector((state: any) => state.auth.isAuthenticated);
-  const user = useSelector((state: any) => state.auth.user);
-  const {} = useGetUser(user.id ?? '');
+  const auth = useSelector((state: any) => state.auth);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+  useEffect(() => {
+    async function checkCookie() {
+      if (
+        !localStorage.getItem('cookieFallback') ||
+        localStorage.getItem('cookieFallback') == '[]'
+      ) {
+        dispatch(authActions.reset());
+        setIsLoading(false);
+      } else {
+        dispatch((await setUserState()) as AnyAction);
+        if (!auth.user.isAuthenticated) {
+          redirect('/in');
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
+        }
+      }
+    }
+
+    checkCookie();
+  }, [dispatch]);
+
   return (
     <>
-      {isauth ? (
+      {!isLoading ? (
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
           <p></p>
-          <div className="w-screen h-screen flex flex-col sm:flex-row">
+          <div className="flex flex-col w-screen h-screen sm:flex-row">
             <TopBar />
             <LeftBar />
-            <div className="flex-grow overflow-y-visible scrollbar bg-black ">
+            <div className="flex-grow overflow-y-visible bg-black scrollbar ">
               <Outlet />
             </div>
-            {/* <div className="flex-grow sm:block hidden h-full"></div> */}
+            {/* <div className="flex-grow hidden h-full sm:block"></div> */}
 
             <BottomBar />
           </div>
         </SkeletonTheme>
       ) : (
-        <Navigate to="/"></Navigate>
+        <Loader />
       )}
     </>
   );

@@ -3,22 +3,18 @@ import { multiFormatDateString } from '../../../functions';
 import { useSelector } from 'react-redux';
 import PostStats from './PostStats';
 import { Link } from 'react-router-dom';
-import {
-  useGetPostById,
-  useGetUser,
-} from '../../../functions/ReactQuery/queries';
+
 import { Suspense } from 'react';
+import Skeleton from 'react-loading-skeleton';
 type PostCardProps = {
   post: Models.Document;
 };
 const PostCard = ({ post }: PostCardProps) => {
   const user = useSelector((state: any) => state.auth.user);
-  const {} = useGetPostById(post.$id ?? '');
-  const {} = useGetUser(post.creator.$id);
 
   return (
     <div className="flex flex-col w-full text-white bg-white bg-opacity-5 sm:p-5 p-2 rounded-[20px] flex-shrink-0 border-[0px] border-b-[1px] border-b-orange-500 shadow-md border-solid border-opacity-20 ">
-      <header className="flex gap-3 justify-center items-center">
+      <header className="flex items-center justify-center gap-3">
         <Link to={`/in/profile/${post.creator.$id}`} className="rounded-full">
           <img
             src={post.creator.profileUrl}
@@ -26,10 +22,11 @@ const PostCard = ({ post }: PostCardProps) => {
             width={45}
             height={45}
             className="rounded-full aspect-square"
+            loading="lazy"
           />
         </Link>
         <div className="flex flex-col flex-grow">
-          <span className="text-md capitalize">{post.creator.name}</span>
+          <span className="capitalize text-md">{post.creator.name}</span>
           <div className="flex gap-2 text-sm text-white text-opacity-30">
             <span> {multiFormatDateString(post.$createdAt)}</span>
             <span> - {post.location}</span>
@@ -64,14 +61,14 @@ const PostCard = ({ post }: PostCardProps) => {
         <main>
           <Suspense
             fallback={
-              // <Skeleton className="w-full rounded-[20px] h-[350px] object-cover  " />
-              'loading'
+              <Skeleton className="w-full rounded-[20px] h-[350px] object-cover  " />
             }
           >
             <img
-              src={post?.imageUrl}
+              src={post.imageUrl}
               alt=""
-              className="w-full rounded-[20px] h-[350px] object-cover  "
+              className="w-full rounded-[20px] h-[350px] object-contain  "
+              loading="lazy"
             />
           </Suspense>
         </main>
