@@ -44,7 +44,7 @@ const ConfirmPassoword = () => {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="flex flex-col items-end gap-3 p-6 bg-white rounded-lg"
+      className="flex flex-col items-end gap-3 p-6 bg-white rounded-lg w-[95%]  sm:w-[400px]"
     >
       <h1 className="w-full text-lg font-bold text-left">
         Change your password
@@ -190,7 +190,7 @@ const ConfirmPassoword = () => {
         <button
           type="submit"
           disabled={!isValid || !isDirty}
-          className="px-3 py-2 text-white bg-orange-500 rounded  disabled:opacity-60 disabled:cursor-not-allowed"
+          className="px-3 py-2 text-white bg-orange-500 rounded disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Submitting...' : 'Change Password'}
         </button>
